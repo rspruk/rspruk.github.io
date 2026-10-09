@@ -3,6 +3,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Inter+Tight:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <meta name="description" content="Rok Spruk, Associate Professor of Economics at the University of Ljubljana. Research on institutions, conflict, courts and long-run development using synthetic control and causal inference.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://rspruk.github.io/">
+<meta property="og:title" content="Rok Spruk · Measuring the history that didn’t happen">
+<meta property="og:description" content="Revolutions, wars, courts and regulation, measured against their counterfactuals. 49 articles, headline findings, open replication code and a press kit.">
+<meta property="og:image" content="https://rspruk.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://rspruk.github.io/og-image.png">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Rok Spruk","jobTitle":"Associate Professor of Economics",
  "affiliation":[{"@type":"CollegeOrUniversity","name":"School of Economics and Business, University of Ljubljana"},{"@type":"CollegeOrUniversity","name":"University of Western Australia"}],
@@ -860,6 +869,7 @@ const COURSES = [
     ['Quantitative Methods for Policy Impact Evaluation', 'School of Economics and Business', 'Counterfactual evaluation of public policy, from design to decision-relevant evidence.'],
     ['Applied Economics with Machine Learning', 'School of Economics and Business', ''],
     ['Economics of Climate Change', 'School of Economics and Business', ''],
+    ['Comparative Analysis of Economic and Business Systems', 'School of Economics and Business', ''],
     ['Comparative Data Analysis of Economic and Business Systems', 'School of Economics and Business', '']
   ]],
   ['Undergraduate', [
@@ -1128,12 +1138,11 @@ $('#profiles').innerHTML = PROFILES.map(([n, s, u]) => `
 $('#collabs').textContent = COLLABORATORS.join(' · ');
 
 /* ===== Code & Data: exposure-augmented SCM files =====
-   Upload the three files to a folder named "esc" in the repository, with exactly these names.
-   Until a file is uploaded, its row shows "Coming soon" instead of a broken link. */
+   The three files sit at the top level of the repository, next to index.html, with exactly these names. */
 const ESC_FILES = [
-  { label: 'Paper', kind: 'PDF', path: 'esc/esc-scm-paper.pdf', note: 'Methods paper with the Iran application' },
-  { label: 'Replication package', kind: 'ZIP', path: 'esc/esc-scm-replication.zip', note: 'Data, master do-file and README' },
-  { label: 'Stata code', kind: 'ZIP', path: 'esc/esc-scm-stata.zip', note: 'Estimator, diagnostics and help file' }
+  { label: 'Paper', kind: 'PDF', path: 'esc-scm-paper.pdf', note: 'Methods paper with the Iran application' },
+  { label: 'Replication package', kind: 'ZIP', path: 'esc-scm-replication.zip', note: 'Data, master do-file and README' },
+  { label: 'Stata code', kind: 'ZIP', path: 'esc-scm-stata.zip', note: 'Estimator, diagnostics and help file' }
 ];
 const ESC_BIB = '@unpublished{spruk2026outofspan,\n  author = {Spruk, Rok},\n  title  = {Synthetic Control under Out-of-Span Common Shocks: Diagnosis, Exposure Balance and Correction},\n  note   = {Working paper},\n  year   = {2026}\n}';
 function escRow(f, live) {
@@ -1142,13 +1151,7 @@ function escRow(f, live) {
     ? `<li class="border-b border-white/15"><a class="group flex items-center justify-between gap-6 py-5 hover:bg-midnight transition-colors px-2 -mx-2" href="${f.path}" download>${inner}<span class="shrink-0 border border-white/30 group-hover:border-brass group-hover:text-brass transition-colors text-[12px] px-3 py-1.5 num">${f.kind} ↓</span></a></li>`
     : `<li class="border-b border-white/15 flex items-center justify-between gap-6 py-5">${inner}<span class="shrink-0 text-[12px] text-mist/80 eyebrow !tracking-[.1em]">Coming soon</span></li>`;
 }
-async function renderEsc() {
-  const status = await Promise.all(ESC_FILES.map(f =>
-    fetch(f.path, { method: 'HEAD', cache: 'no-store' }).then(r => r.ok).catch(() => false)));
-  $('#escFiles').innerHTML = ESC_FILES.map((f, i) => escRow(f, status[i])).join('');
-}
-$('#escFiles').innerHTML = ESC_FILES.map(f => escRow(f, false)).join('');
-renderEsc();
+$('#escFiles').innerHTML = ESC_FILES.map(f => escRow(f, true)).join('');
 $('#escBib').textContent = ESC_BIB;
 $('#copyEscBib').addEventListener('click', () => copyText(ESC_BIB, 'BibTeX copied'));
 
