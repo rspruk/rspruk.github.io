@@ -1,0 +1,1133 @@
+<title>Rok Spruk Homepage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Inter+Tight:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<meta name="description" content="Rok Spruk, Associate Professor of Economics at the University of Ljubljana. Research on institutions, conflict, courts and long-run development using synthetic control and causal inference.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Rok Spruk","jobTitle":"Associate Professor of Economics",
+ "affiliation":[{"@type":"CollegeOrUniversity","name":"School of Economics and Business, University of Ljubljana"},{"@type":"CollegeOrUniversity","name":"University of Western Australia"}],
+ "alumniOf":{"@type":"CollegeOrUniversity","name":"Utrecht University"},"email":"rok.spruk@ef.uni-lj.si",
+ "knowsAbout":["Economic growth","Development economics","Causal inference","Synthetic control method","Law and economics","Political economy"],
+ "award":["Bergson Prize, Association for Comparative Economic Studies (2026)"],
+ "sameAs":["https://orcid.org/0000-0002-7269-2339","https://scholar.google.com/citations?user=Ym9COZoAAAAJ","https://ideas.repec.org/e/psp123.html","https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=2146732","https://twitter.com/rokspruk","https://rokspruk.substack.com"]}
+</script>
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          navy: '#0E1B2C', midnight: '#16263B', charcoal: '#23272E', slate: '#5B6675',
+          rule: '#D9D3C7', parchment: '#EFE9DD', ivory: '#F7F4EE', oxblood: '#8C2F2B', brass: '#B08D57', mist: '#A9B3C1'
+        },
+        fontFamily: {
+          serif: ['Newsreader', 'Georgia', 'Times New Roman', 'serif'],
+          sans: ['"Inter Tight"', 'Helvetica Neue', 'Arial', 'sans-serif'],
+          mono: ['"IBM Plex Mono"', 'ui-monospace', 'Menlo', 'monospace']
+        },
+        maxWidth: { page: '1240px', measure: '640px' }
+      }
+    }
+  }
+</script>
+<style>
+  /* Layout: a scholarly press on a 12-col / 1240px frame. Ivory paper, full-bleed ink-navy bands, one serif voice,
+     sans for apparatus, mono for every number. Oxblood is the single accent on ivory; brass only on navy. */
+  :root {
+    --navy: #0E1B2C; --midnight: #16263B; --charcoal: #23272E; --slate: #5B6675; --rule: #D9D3C7;
+    --parchment: #EFE9DD; --ivory: #F7F4EE; --oxblood: #8C2F2B; --brass: #B08D57; --mist: #A9B3C1;
+    --serif: Newsreader, Georgia, "Times New Roman", serif;
+    --sans: "Inter Tight", "Helvetica Neue", Arial, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    color-scheme: light;
+  }
+  body { background: var(--ivory); color: var(--charcoal); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+  h1, h2, h3 { text-wrap: balance; }
+  .eyebrow { font: 500 12px/16px var(--sans); letter-spacing: .16em; text-transform: uppercase; }
+  .num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+  .measure { max-width: 640px; }
+
+  .opener { display: flex; align-items: center; gap: 16px; }
+  .opener::after { content: ""; flex: 1; height: 1px; background: currentColor; opacity: .35; transform-origin: left; animation: rule 900ms cubic-bezier(.2,.7,.2,1) both; }
+  @keyframes rule { from { transform: scaleX(0) } to { transform: scaleX(1) } }
+
+  /* Views */
+  [data-view] { animation: viewIn 320ms ease-out both; }
+  @keyframes viewIn { from { opacity: .001; transform: translateY(8px) } to { opacity: 1; transform: none } }
+
+  /* Header */
+  .site-header { top: env(safe-area-inset-top, 0px); border-bottom: 1px solid transparent; transition: border-color 200ms ease-out; }
+  .site-header.scrolled { border-color: var(--rule); }
+  .nav-link { position: relative; padding-block: 4px; color: var(--charcoal); }
+  .nav-link::after { content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 1px; background: var(--oxblood); transform: scaleX(0); transform-origin: left; transition: transform 220ms ease-out; }
+  .nav-link:hover::after, .nav-link[aria-current="page"]::after { transform: scaleX(1); }
+  .nav-link[aria-current="page"] { color: var(--navy); }
+
+  /* Publication rows */
+  .pub { transition: background-color 200ms ease-out, opacity 150ms ease-out; }
+  .pub:hover { background: rgba(239,233,221,.65); }
+  .pub .t { background-image: linear-gradient(var(--oxblood), var(--oxblood)); background-size: 0% 1.5px; background-position: 0 100%; background-repeat: no-repeat; transition: background-size 240ms ease-out; padding-bottom: 2px; }
+  .pub:hover .t, .pub:focus-within .t { background-size: 100% 1.5px; }
+  .act { color: var(--slate); transition: color 160ms ease-out; }
+  .act:hover { color: var(--oxblood); }
+  .act .arr { display: inline-block; transition: transform 180ms ease-out; }
+  .act:hover .arr { transform: translate(2px, -2px); }
+
+  .pill { border: 1px solid var(--rule); color: var(--charcoal); transition: all 160ms ease-out; }
+  .pill:hover { border-color: var(--charcoal); }
+  .pill[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); color: var(--ivory); }
+  .tab { color: var(--slate); border-bottom: 2px solid transparent; transition: color 160ms, border-color 160ms; }
+  .tab:hover { color: var(--navy); }
+  .tab[aria-selected="true"] { color: var(--navy); border-color: var(--oxblood); }
+
+  .tile { transition: background-color 200ms ease-out; }
+  .tile:hover { background: var(--ivory); }
+  .tile .arrow { display: inline-block; transition: transform 200ms ease-out; }
+  .tile:hover .arrow { transform: translateX(4px); }
+
+  .card { transition: border-color 200ms ease-out, transform 200ms ease-out; }
+  .card:hover { border-color: var(--charcoal); }
+  .card:hover .t { color: var(--oxblood); }
+
+  .link { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; transition: color 180ms ease-out; }
+  .link:hover { color: var(--oxblood); }
+  .on-navy .link:hover { color: var(--brass); }
+
+  /* Signature chart */
+  .draw { stroke-dasharray: 2000; animation: draw 1800ms cubic-bezier(.3,.6,.2,1) 250ms both; }
+  .draw.cf { animation-delay: 500ms; }
+  @keyframes draw { from { stroke-dashoffset: 2000 } to { stroke-dashoffset: 0 } }
+  .fade-late { animation: fade 800ms ease-out 1900ms both; }
+  @keyframes fade { from { opacity: 0 } to { opacity: 1 } }
+
+  .portrait-frame::before { content: ""; position: absolute; inset: 14px -14px -14px 14px; border: 1px solid var(--brass); opacity: .55; pointer-events: none; }
+
+  details > summary { list-style: none; cursor: pointer; }
+  details > summary::-webkit-details-marker { display: none; }
+  details[open] .chev { transform: rotate(180deg); }
+  .chev { display: inline-block; transition: transform 200ms ease-out; }
+
+  a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visible { outline: 2px solid var(--oxblood); outline-offset: 3px; }
+  .on-navy a:focus-visible, .on-navy button:focus-visible { outline-color: var(--brass); }
+
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+</style>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header sticky z-40 bg-ivory/95 backdrop-blur-sm">
+  <div class="mx-auto max-w-page px-4 sm:px-8 h-[72px] flex items-center justify-between gap-6">
+    <a href="#home" class="flex items-baseline gap-3 min-w-0">
+      <span class="font-serif text-[23px] tracking-tight text-navy">Rok Spruk</span>
+      <span class="hidden xl:inline text-[12px] text-slate">Economics · University of Ljubljana</span>
+    </a>
+    <nav aria-label="Primary" class="hidden lg:flex items-center gap-7 text-[14px]">
+      <a class="nav-link" href="#research" data-nav="research">Research</a>
+      <a class="nav-link" href="#policy" data-nav="policy">Policy &amp; Media</a>
+      <a class="nav-link" href="#speaking" data-nav="speaking">Speaking</a>
+      <a class="nav-link" href="#teaching" data-nav="teaching">Teaching</a>
+      <a class="nav-link" href="#about" data-nav="about">About</a>
+      <a class="nav-link" href="#contact" data-nav="contact">Contact</a>
+    </nav>
+    <button id="menuBtn" class="lg:hidden text-[14px] text-navy border border-rule px-3 py-1.5" aria-expanded="false" aria-controls="mobileNav">Menu</button>
+  </div>
+  <nav id="mobileNav" class="lg:hidden border-t border-rule px-4 py-4 text-[16px] flex flex-col gap-3 bg-ivory" hidden>
+    <a href="#home">Home</a><a href="#research">Research</a><a href="#policy">Policy &amp; Media</a><a href="#speaking">Speaking</a><a href="#teaching">Teaching</a><a href="#about">About</a><a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- ======================================================= HOME ======================================================= -->
+<div data-view="home">
+
+  <!-- HERO -->
+  <section class="on-navy bg-navy text-ivory overflow-hidden">
+    <div class="mx-auto max-w-page px-4 sm:px-8 pt-14 pb-20 md:pt-20 md:pb-28 grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-10 items-center">
+      <div class="lg:col-span-7 min-w-0">
+        <p class="eyebrow text-brass">Economist · Institutions · Causal Inference</p>
+        <h1 class="font-serif font-light text-[clamp(52px,9vw,104px)] leading-[.98] tracking-[-0.025em] mt-6">Rok Spruk</h1>
+        <p class="mt-7 text-[17px] leading-7 text-ivory">Associate Professor of Economics<br><span class="text-ivory/75">School of Economics and Business, University of Ljubljana</span></p>
+        <ul class="mt-5 space-y-1.5 text-[14px] text-mist">
+          <li>Adjunct Research Fellow, University of Western Australia</li>
+          <li>Associate Editor, <span class="italic font-serif text-[15px]">International Review of Law and Economics</span> and <span class="italic font-serif text-[15px]">Acta Oeconomica</span></li>
+          <li>Adviser to the European Commission (DG REGIO) on regional policy evaluation</li>
+        </ul>
+        <p class="font-serif italic font-light text-[clamp(22px,2.5vw,28px)] leading-[1.38] mt-10 max-w-[34ch]">
+          What would Iran, Argentina or Syria look like had the revolution, the reform or the war never happened? I build those counterfactuals and measure the difference.
+        </p>
+        <div class="mt-10 flex flex-wrap items-center gap-x-7 gap-y-4">
+          <a href="#research" class="bg-ivory text-navy text-[14px] font-medium px-6 py-3.5 hover:bg-parchment transition-colors">Explore the research →</a>
+          <a href="#policy" class="link text-[14px] text-ivory/90">Press kit</a>
+          <a href="#speaking" class="link text-[14px] text-ivory/90">Invite to speak</a>
+        </div>
+      </div>
+      <figure class="lg:col-span-5 min-w-0">
+        <div class="portrait-frame relative w-full max-w-[400px] mx-auto lg:ml-auto lg:mr-4">
+          <img src="data:image/jpeg;base64,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" alt="Portrait of Rok Spruk" width="480" height="600" class="relative block w-full max-w-full aspect-[4/5] object-cover">
+        </div>
+        <figcaption class="max-w-[400px] mx-auto lg:ml-auto lg:mr-4 mt-8 flex justify-between text-[11px] text-mist num"><span>Ljubljana</span><span>PhD, Utrecht 2016</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- CREDENTIALS -->
+  <section class="on-navy bg-midnight text-ivory" aria-label="Distinctions">
+    <dl class="mx-auto max-w-page px-4 sm:px-8 py-9 grid grid-cols-2 lg:grid-cols-4 gap-y-8 gap-x-8">
+      <div class="lg:border-r border-white/10 lg:pr-6"><dt class="eyebrow text-mist !text-[11px]">Peer-reviewed</dt><dd class="mt-2"><span class="font-serif text-[40px] leading-none">49</span><span class="block text-[13px] text-ivory/75 mt-2">journal articles since 2013</span></dd></div>
+      <div class="lg:border-r border-white/10 lg:pr-6"><dt class="eyebrow text-mist !text-[11px]">Bergson Prize</dt><dd class="mt-2"><span class="font-serif text-[40px] leading-none num">2026</span><span class="block text-[13px] text-ivory/75 mt-2">Best paper, Association for Comparative Economic Studies</span></dd></div>
+      <div class="lg:border-r border-white/10 lg:pr-6"><dt class="eyebrow text-mist !text-[11px]">RePEc</dt><dd class="mt-2"><span class="font-serif text-[40px] leading-none">Top 5%</span><span class="block text-[13px] text-ivory/75 mt-2">of registered economists, ten-year output</span></dd></div>
+      <div><dt class="eyebrow text-mist !text-[11px]">Econometric Society</dt><dd class="mt-2"><span class="font-serif text-[40px] leading-none num">2020 · 2025</span><span class="block text-[13px] text-ivory/75 mt-2">World Congress, Milan and Seoul</span></dd></div>
+    </dl>
+  </section>
+
+  <!-- SIGNATURE CHART -->
+  <section class="bg-ivory">
+    <div class="mx-auto max-w-page px-4 sm:px-8 py-20 md:py-28">
+      <p class="opener eyebrow text-slate">The method</p>
+      <div class="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <div class="lg:col-span-4 min-w-0">
+          <h2 class="font-serif text-[clamp(30px,3.6vw,42px)] leading-[1.12] tracking-[-0.015em] text-navy">History, re-run without the shock</h2>
+          <p class="mt-6 text-[17px] leading-[1.75] text-charcoal/90">A synthetic control builds a weighted composite of comparable countries that tracks the treated country before an event. After the event, the gap between the two lines is the estimated cost or dividend of that event.</p>
+          <p class="mt-4 text-[17px] leading-[1.75] text-charcoal/90">The same logic runs through papers on the 1979 Iranian Revolution, Syria's civil war, Danish trans-fat rules and Spain's devolution.</p>
+          <a href="#research" class="link inline-block mt-6 text-[14px] text-slate">See the papers →</a>
+        </div>
+        <figure class="lg:col-span-8 min-w-0 border border-rule bg-[#FBF9F5] p-4 sm:p-6">
+          <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-[12px] text-slate mb-3">
+            <span class="flex items-center gap-2"><span class="inline-block w-5 h-[2px] bg-navy"></span>Treated country</span>
+            <span class="flex items-center gap-2"><span class="inline-block w-5 border-t-2 border-dashed border-slate"></span>Synthetic control</span>
+            <span class="ml-auto eyebrow !text-[10px] text-oxblood">Illustrative data</span>
+          </div>
+          <div class="relative">
+            <svg id="scm" viewBox="0 0 760 330" class="w-full h-auto block touch-none" role="img" aria-label="Illustrative synthetic control chart. The treated country and its synthetic counterpart move together for twenty years, then diverge after the event; by year twenty the treated country is about a fifth below its counterfactual.">
+              <g id="grid"></g>
+              <path id="gapBand" class="fade-late" fill="#8C2F2B" fill-opacity=".08"></path>
+              <path id="synthPath" class="draw cf" fill="none" stroke="#5B6675" stroke-width="1.6" stroke-dasharray="5 4"></path>
+              <path id="treatPath" class="draw" fill="none" stroke="#0E1B2C" stroke-width="2.2"></path>
+              <g id="eventMark"></g>
+              <g id="hover" opacity="0">
+                <line id="hx" y1="16" y2="290" stroke="#8C2F2B" stroke-width="1"></line>
+                <circle id="hc1" r="4" fill="#0E1B2C"></circle>
+                <circle id="hc2" r="4" fill="#F7F4EE" stroke="#5B6675" stroke-width="1.5"></circle>
+              </g>
+            </svg>
+            <div id="tip" class="absolute pointer-events-none bg-navy text-ivory text-[12px] px-3 py-2 num" style="opacity:0; transition: opacity 120ms;"></div>
+          </div>
+          <figcaption class="mt-3 text-[13px] text-slate">Hover or drag across the chart to read the gap. Index, year before event = 100.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- LATEST -->
+  <section class="bg-parchment">
+    <div class="mx-auto max-w-page px-4 sm:px-8 py-20 md:py-28">
+      <p class="opener eyebrow text-slate">Latest</p>
+      <div class="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <div class="lg:col-span-7 min-w-0">
+          <h2 class="font-serif text-[clamp(28px,3.4vw,40px)] leading-[1.15] text-navy">News</h2>
+          <ol class="mt-8 border-t border-navy/70">
+            <li class="grid grid-cols-[88px_1fr] sm:grid-cols-[110px_1fr] gap-4 py-5 border-b border-rule"><span class="num text-[13px] text-slate pt-1">2026</span><p class="text-[16px] leading-7"><span class="font-medium text-navy">Bergson Prize.</span> Best paper award from the Association for Comparative Economic Studies.</p></li>
+            <li class="grid grid-cols-[88px_1fr] sm:grid-cols-[110px_1fr] gap-4 py-5 border-b border-rule"><span class="num text-[13px] text-slate pt-1">Aug 2026</span><p class="text-[16px] leading-7"><span class="font-medium text-navy">New working paper.</span> <a class="link" href="https://arxiv.org/abs/2608.21077" target="_blank" rel="noopener">Public Signals, Concealed Choices: Dynamic Measurement without Behavioral Identification</a>.</p></li>
+            <li class="grid grid-cols-[88px_1fr] sm:grid-cols-[110px_1fr] gap-4 py-5 border-b border-rule"><span class="num text-[13px] text-slate pt-1">Forthcoming</span><p class="text-[16px] leading-7"><span class="font-medium text-navy">Counterfactual Identification of Institutional Rupture</span>, on Venezuela's constitutional transformation, with N. Garoupa and V. Rosales. <span class="italic font-serif text-[17px]">Journal of Law and Empirical Analysis</span>.</p></li>
+            <li class="grid grid-cols-[88px_1fr] sm:grid-cols-[110px_1fr] gap-4 py-5 border-b border-rule"><span class="num text-[13px] text-slate pt-1">Feb 2026</span><p class="text-[16px] leading-7"><span class="font-medium text-navy">European Commission, Brussels.</span> Talk on counterfactual evaluation of EU Cohesion Policy at the 10th Regional Policy Evaluation conference, building on his synthetic control report for the Commission's ex post evaluation of 2014–2020.</p></li>
+            <li class="grid grid-cols-[88px_1fr] sm:grid-cols-[110px_1fr] gap-4 py-5 border-b border-rule"><span class="num text-[13px] text-slate pt-1">Spring 2026</span><p class="text-[16px] leading-7"><span class="font-medium text-navy">National Affairs</span> covers the work in <a class="link" href="https://www.nationalaffairs.com/blog/detail/findings-a-daily-roundup/detailing-the-regime" target="_blank" rel="noopener">“Detailing the Regime”</a>.</p></li>
+            <li class="grid grid-cols-[88px_1fr] sm:grid-cols-[110px_1fr] gap-4 py-5 border-b border-rule"><span class="num text-[13px] text-slate pt-1">Aug 2025</span><p class="text-[16px] leading-7"><span class="font-medium text-navy">Econometric Society World Congress, Seoul.</span> Presented the Venezuela judicial-independence paper.</p></li>
+          </ol>
+        </div>
+        <div class="lg:col-span-5 min-w-0">
+          <h2 class="font-serif text-[clamp(28px,3.4vw,40px)] leading-[1.15] text-navy">Commentary</h2>
+          <div class="mt-8 flex flex-col gap-5">
+            <a class="card block border border-rule bg-ivory p-6" href="https://www.haaretz.com/israel-news/2023-01-05/this-is-how-israels-economy-could-succumb-to-populism/00000185-81c0-d9f4-abf7-81ebd0ab0000" target="_blank" rel="noopener">
+              <p class="flex justify-between eyebrow !text-[11px] text-slate"><span>Haaretz</span><span class="num normal-case tracking-normal">Jan 2023</span></p>
+              <p class="t font-serif text-[21px] leading-[1.3] text-navy mt-3 transition-colors">This is how Israel's economy could succumb to populism</p>
+            </a>
+            <a class="card block border border-rule bg-ivory p-6" href="https://elpais.com/economia/negocios/2024-01-28/la-pesada-carga-de-la-regulacion.html" target="_blank" rel="noopener">
+              <p class="flex justify-between eyebrow !text-[11px] text-slate"><span>El País</span><span class="num normal-case tracking-normal">Jan 2024</span></p>
+              <p class="t font-serif text-[21px] leading-[1.3] text-navy mt-3 transition-colors">La pesada carga de la regulación</p>
+            </a>
+            <a class="card block border border-rule bg-ivory p-6" href="https://rokspruk.substack.com" target="_blank" rel="noopener">
+              <p class="flex justify-between eyebrow !text-[11px] text-slate"><span>Substack</span><span class="num normal-case tracking-normal">Newsletter</span></p>
+              <p class="t font-serif text-[21px] leading-[1.3] text-navy mt-3 transition-colors">A Diary of Non-Random Observations</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EC ADVISORY FEATURE -->
+  <section class="bg-ivory">
+    <div class="mx-auto max-w-page px-4 sm:px-8 py-20 md:py-28">
+      <p class="opener eyebrow text-slate">Policy advice</p>
+      <div class="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <div class="lg:col-span-6 min-w-0">
+          <p class="eyebrow !text-[11px] text-oxblood">European Commission · DG Regional and Urban Policy</p>
+          <h2 class="font-serif text-[clamp(30px,3.8vw,44px)] leading-[1.12] tracking-[-0.015em] text-navy mt-4">Did a decade of EU Cohesion spending raise regional growth?</h2>
+          <p class="mt-6 text-[17px] leading-[1.75] text-charcoal/90 measure">Rok Spruk advises the European Commission on regional policy evaluation. For the Commission's ex post evaluation of the 2014–2020 Cohesion Policy cycle, he wrote the synthetic control study of Work Package 3, which estimates how the funds changed income, productivity and employment in recipient regions.</p>
+          <div class="mt-8 flex flex-wrap gap-x-7 gap-y-3 text-[14px]">
+            <a class="act" href="https://ec.europa.eu/regional_policy/sources/policy/evaluations/ec/2014-2020/WP03/WP3_Synthetic_control_final_report.pdf" target="_blank" rel="noopener">Read the final report <span class="arr">↗</span></a>
+            <a class="act" href="https://ec.europa.eu/regional_policy/policy/evaluations/ec/2014-2020_en" target="_blank" rel="noopener">The 2014–2020 ex post evaluation <span class="arr">↗</span></a>
+          </div>
+        </div>
+        <dl class="lg:col-span-6 grid grid-cols-2 border-t border-l border-rule min-w-0">
+          <div class="border-r border-b border-rule p-6"><dt class="eyebrow !text-[10px] text-slate">Recipient regions</dt><dd class="font-serif text-[44px] leading-none text-navy mt-3">209</dd></div>
+          <div class="border-r border-b border-rule p-6"><dt class="eyebrow !text-[10px] text-slate">Donor regions</dt><dd class="font-serif text-[44px] leading-none text-navy mt-3">~149</dd></div>
+          <div class="border-r border-b border-rule p-6"><dt class="eyebrow !text-[10px] text-slate">Outcomes</dt><dd class="text-[15px] leading-6 mt-3">GDP per capita, labour productivity, sectoral employment, unemployment</dd></div>
+          <div class="border-r border-b border-rule p-6"><dt class="eyebrow !text-[10px] text-slate">Method</dt><dd class="text-[15px] leading-6 mt-3">Dynamic synthetic control in a difference-in-differences design</dd></div>
+          <div class="col-span-2 border-r border-b border-rule p-6 flex flex-wrap justify-between gap-3"><span class="text-[14px] text-charcoal">Final report, Work Package 3 · sole author</span><span class="num text-[13px] text-slate">July 2025</span></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINDINGS -->
+  <section class="on-navy bg-navy text-ivory">
+    <div class="mx-auto max-w-page px-4 sm:px-8 py-20 md:py-28">
+      <p class="opener eyebrow text-brass">Findings in brief</p>
+      <div class="mt-10 flex flex-wrap items-end justify-between gap-6">
+        <h2 class="font-serif font-light text-[clamp(30px,4vw,46px)] leading-[1.1] max-w-[22ch]">What the evidence shows, in one line each</h2>
+        <a href="#research" class="link text-[14px] text-mist">All papers →</a>
+      </div>
+      <div id="findingsGrid" class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10"></div>
+    </div>
+  </section>
+
+  <!-- THEMES -->
+  <section class="bg-parchment">
+    <div class="mx-auto max-w-page px-4 sm:px-8 py-20 md:py-28">
+      <p class="opener eyebrow text-slate">Research programme</p>
+      <div class="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <h2 class="lg:col-span-7 font-serif text-[clamp(30px,4vw,46px)] leading-[1.1] tracking-[-0.015em] text-navy">Why institutions succeed, fail, and leave a mark that lasts a century</h2>
+        <p class="lg:col-span-5 text-[17px] leading-[1.75] text-charcoal/85 lg:pt-2 measure">Seven lines of work across economic history, law and economics, and political economy. Choose one to open the matching papers.</p>
+      </div>
+      <div id="themeGrid" class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-t border-l border-rule"></div>
+    </div>
+  </section>
+
+  <!-- SELECTED PUBLICATIONS -->
+  <section class="bg-ivory">
+    <div class="mx-auto max-w-page px-4 sm:px-8 py-20 md:py-28">
+      <p class="opener eyebrow text-slate">Selected publications</p>
+      <div class="mt-10 flex flex-wrap items-end justify-between gap-6">
+        <h2 class="font-serif text-[clamp(30px,4vw,46px)] leading-[1.1] text-navy">Six papers to start with</h2>
+        <a href="#research" class="link text-[14px] text-slate">All 49 articles →</a>
+      </div>
+      <ul id="selectedList" class="mt-10 border-t border-navy/70"></ul>
+    </div>
+  </section>
+
+  <!-- FEATURED IN -->
+  <section class="bg-ivory border-y border-rule" aria-label="Featured in">
+    <div class="mx-auto max-w-page px-4 sm:px-8 py-10 flex flex-col md:flex-row md:items-center gap-6 md:gap-10">
+      <p class="eyebrow text-slate shrink-0">Work featured in</p>
+      <p class="font-serif text-[clamp(18px,2vw,23px)] text-navy/80 flex flex-wrap gap-x-8 gap-y-2">
+        <span>El País</span><span>Haaretz</span><span>National Affairs</span><span>El Confidencial</span><span>Cato Unbound</span><span>Inter-American Dialogue</span><span>Nada es Gratis</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="on-navy bg-navy text-ivory">
+    <div class="mx-auto max-w-page px-4 sm:px-8 py-20 md:py-24 grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+      <div class="lg:col-span-8 min-w-0">
+        <p class="eyebrow text-brass">Policy makers, editors and producers</p>
+        <h2 class="font-serif font-light text-[clamp(30px,4vw,48px)] leading-[1.12] mt-5 max-w-[24ch]">Evidence on sanctions, courts, revolutions and peace, available for briefings in five languages</h2>
+      </div>
+      <div class="lg:col-span-4 flex flex-wrap gap-4 lg:justify-end">
+        <a href="#policy" class="bg-ivory text-navy text-[14px] font-medium px-6 py-3.5 hover:bg-parchment transition-colors">Press kit</a>
+        <a href="#contact" class="border border-white/30 text-[14px] px-6 py-3.5 hover:border-brass hover:text-brass transition-colors">Get in touch</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ======================================================= RESEARCH ======================================================= -->
+<div data-view="research" hidden>
+  <section class="bg-ivory">
+    <div class="mx-auto max-w-page px-4 sm:px-8 pt-16 md:pt-24 pb-10">
+      <p class="eyebrow text-oxblood">Research</p>
+      <div class="mt-5 grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+        <h1 class="lg:col-span-7 font-serif font-light text-[clamp(44px,6vw,72px)] leading-[1.02] tracking-[-0.02em] text-navy">Publications</h1>
+        <div class="lg:col-span-5 flex flex-wrap gap-x-6 gap-y-2 text-[14px] lg:justify-end">
+          <a class="act" href="https://scholar.google.com/citations?user=Ym9COZoAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar <span class="arr">↗</span></a>
+          <a class="act" href="https://ideas.repec.org/e/psp123.html" target="_blank" rel="noopener">RePEc <span class="arr">↗</span></a>
+          <a class="act" href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=2146732" target="_blank" rel="noopener">SSRN <span class="arr">↗</span></a>
+          <a class="act" href="https://dataverse.harvard.edu/dataverse.xhtml?alias=rspruk" target="_blank" rel="noopener">Replication data <span class="arr">↗</span></a>
+        </div>
+      </div>
+      <p class="mt-6 text-[17px] leading-[1.75] text-charcoal/85 measure">49 peer-reviewed articles, 5 papers under review, 9 working papers, a monograph and 4 book chapters. Replication files are on Harvard Dataverse.</p>
+    </div>
+  </section>
+
+  <!-- Filter bar -->
+  <div class="sticky z-30 bg-ivory/95 backdrop-blur-sm border-y border-rule" style="top: calc(72px + env(safe-area-inset-top, 0px))">
+    <div class="mx-auto max-w-page px-4 sm:px-8">
+      <div role="tablist" aria-label="Publication type" id="typeTabs" class="flex gap-6 overflow-x-auto text-[14px] pt-3"></div>
+      <div class="flex flex-col md:flex-row md:items-center gap-3 py-3">
+        <div id="themePills" class="flex flex-wrap gap-2 flex-1 min-w-0"></div>
+        <label class="relative md:w-[260px] shrink-0">
+          <span class="sr-only">Search publications</span>
+          <input id="q" type="search" placeholder="Search title, coauthor, journal" class="w-full bg-transparent border border-rule focus:border-navy outline-none px-3 py-2 text-[14px] placeholder:text-slate/70">
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <section class="bg-ivory">
+    <div class="mx-auto max-w-page px-4 sm:px-8 pt-6 pb-24">
+      <p id="resultCount" class="num text-[12px] text-slate py-3" aria-live="polite"></p>
+      <div id="pubList"></div>
+      <p id="emptyState" class="py-16 text-center text-slate" hidden>No papers match. Clear the search or pick another theme.</p>
+    </div>
+  </section>
+</div>
+
+<!-- ======================================================= POLICY & MEDIA ======================================================= -->
+<div data-view="policy" hidden>
+  <section class="on-navy bg-navy text-ivory">
+    <div class="mx-auto max-w-page px-4 sm:px-8 pt-16 md:pt-24 pb-16">
+      <p class="eyebrow text-brass">Policy &amp; Media</p>
+      <h1 class="font-serif font-light text-[clamp(44px,6vw,72px)] leading-[1.02] tracking-[-0.02em] mt-5">Press kit</h1>
+      <p class="mt-6 text-[17px] leading-[1.75] text-ivory/85 measure">Bios, expertise and a record of commentary and coverage. For interviews in English, German, Spanish, Italian or French, see Contact.</p>
+    </div>
+  </section>
+
+  <section class="bg-ivory">
+    <div class="mx-auto max-w-page px-4 sm:px-8 py-16 md:py-20 grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <div class="lg:col-span-7 min-w-0">
+        <p class="opener eyebrow text-slate">Biography</p>
+        <div class="mt-8 flex gap-6 border-b border-rule text-[14px]" role="tablist" id="bioTabs">
+          <button role="tab" class="tab pb-2" aria-selected="true" data-bio="short">25 words</button>
+          <button role="tab" class="tab pb-2" aria-selected="false" data-bio="medium">80 words</button>
+          <button role="tab" class="tab pb-2" aria-selected="false" data-bio="long">180 words</button>
+        </div>
+        <p id="bioText" class="font-serif text-[20px] leading-[1.6] text-charcoal mt-6 measure"></p>
+        <button id="copyBio" class="mt-5 text-[13px] text-oxblood hover:underline underline-offset-4">Copy this bio</button>
+      </div>
+      <div class="lg:col-span-5 min-w-0">
+        <p class="opener eyebrow text-slate">Available to comment on</p>
+        <ul class="mt-8 border-t border-rule text-[16px]">
+          <li class="py-3.5 border-b border-rule">Sanctions and confrontation with the West</li>
+          <li class="py-3.5 border-b border-rule">Revolutions and state collapse: Iran, Yemen, Syria, Venezuela</li>
+          <li class="py-3.5 border-b border-rule">Judicial independence and populist backsliding</li>
+          <li class="py-3.5 border-b border-rule">The economics of peace agreements</li>
+          <li class="py-3.5 border-b border-rule">Over-regulation and legislative inflation in Spain and the EU</li>
+          <li class="py-3.5 border-b border-rule">Argentina's long decline</li>
+          <li class="py-3.5 border-b border-rule">EU Cohesion Policy and regional policy evaluation</li>
+        </ul>
+        <p class="mt-5 text-[13px] text-slate">High-resolution portraits available on request.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-parchment">
+    <div class="mx-auto max-w-page px-4 sm:px-8 py-16 md:py-20">
+      <p class="opener eyebrow text-slate">Coverage and commentary</p>
+      <div class="mt-8 overflow-x-auto">
+        <table class="w-full min-w-[640px] text-left">
+          <thead><tr class="border-b border-navy/70 eyebrow !text-[11px] text-slate"><th class="py-3 pr-4 font-medium w-[120px]">Date</th><th class="py-3 pr-4 font-medium w-[200px]">Outlet</th><th class="py-3 font-medium">Title</th></tr></thead>
+          <tbody id="pressRows"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-ivory">
+    <div class="mx-auto max-w-page px-4 sm:px-8 py-16 md:py-20 grid grid-cols-1 lg:grid-cols-2 gap-14">
+      <div class="min-w-0">
+        <p class="opener eyebrow text-slate">Policy reports and briefs</p>
+        <ul class="mt-8 border-t border-rule">
+          <li class="py-5 border-b border-rule"><a class="font-serif text-[19px] leading-[1.35] text-navy link !no-underline hover:!underline" href="https://ec.europa.eu/regional_policy/sources/policy/evaluations/ec/2014-2020/WP03/WP3_Synthetic_control_final_report.pdf" target="_blank" rel="noopener">Counterfactual Impact Evaluation of Cohesion Policy 2014–2020: Synthetic Control ↗</a><p class="text-[14px] text-slate mt-1">Final report, Work Package 3 of the ex post evaluation of the ERDF and Cohesion Fund · DG Regional and Urban Policy, European Commission, July 2025</p></li>
+          <li class="py-5 border-b border-rule"><p class="font-serif text-[19px] leading-[1.35] text-navy">Monarchy: Cause or Consequence of Prosperity?</p><p class="text-[14px] text-slate mt-1">Cato Unbound: A Journal of Debate, July 2022</p></li>
+          <li class="py-5 border-b border-rule"><p class="font-serif text-[19px] leading-[1.35] text-navy">The Rise and Fall of Argentina: Policy Brief</p><p class="text-[14px] text-slate mt-1">Mercatus Center, George Mason University, 2018</p></li>
+          <li class="py-5 border-b border-rule"><p class="font-serif text-[19px] leading-[1.35] text-navy">After 20 Years of Status Quo: The Failure of Gradualism in Slovenia's Post-Socialist Transition</p><p class="text-[14px] text-slate mt-1">Centre for Research into Post-Communist Economies, London, 2012</p></li>
+          <li class="py-5 border-b border-rule"><p class="font-serif text-[19px] leading-[1.35] text-navy">Iceland's Economic and Financial Crisis: Causes, Consequences and Implications</p><p class="text-[14px] text-slate mt-1">European Enterprise Institute, Brussels, 2010</p></li>
+        </ul>
+      </div>
+      <div class="min-w-0">
+        <p class="opener eyebrow text-slate">Policy presentations</p>
+        <ul class="mt-8 border-t border-rule">
+          <li class="grid grid-cols-[96px_1fr] gap-4 py-4 border-b border-rule"><span class="num text-[13px] text-slate">02/2026</span><span>European Commission</span></li>
+          <li class="grid grid-cols-[96px_1fr] gap-4 py-4 border-b border-rule"><span class="num text-[13px] text-slate">06/2024</span><span>European Commission</span></li>
+          <li class="grid grid-cols-[96px_1fr] gap-4 py-4 border-b border-rule"><span class="num text-[13px] text-slate">2017–2022</span><span>Bank of Spain (four seminars)</span></li>
+          <li class="grid grid-cols-[96px_1fr] gap-4 py-4 border-b border-rule"><span class="num text-[13px] text-slate">05/2015</span><span>Slovenian Intellectual Property Office</span></li>
+          <li class="grid grid-cols-[96px_1fr] gap-4 py-4 border-b border-rule"><span class="num text-[13px] text-slate">03/2010</span><span>European Parliament</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ======================================================= SPEAKING ======================================================= -->
+<div data-view="speaking" hidden>
+  <section class="bg-ivory">
+    <div class="mx-auto max-w-page px-4 sm:px-8 pt-16 md:pt-24 pb-14">
+      <p class="eyebrow text-oxblood">Speaking</p>
+      <h1 class="font-serif font-light text-[clamp(44px,6vw,72px)] leading-[1.02] tracking-[-0.02em] text-navy mt-5">Lectures and talks</h1>
+      <p class="mt-6 text-[17px] leading-[1.75] text-charcoal/85 measure">Keynotes, seminars and policy briefings for universities, central banks and international institutions. Talks given at the Econometric Society, the American Economic Association, Harvard Law School and Yale.</p>
+    </div>
+  </section>
+
+  <section class="on-navy bg-navy text-ivory">
+    <div class="mx-auto max-w-page px-4 sm:px-8 py-16 md:py-20">
+      <p class="opener eyebrow text-brass">Signature talks</p>
+      <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10">
+        <article class="bg-navy p-7 sm:p-8 flex flex-col gap-4"><span class="num text-[12px] text-brass">I</span><h3 class="font-serif text-[25px] leading-[1.25]">What revolutions cost</h3><p class="text-[15px] leading-[1.7] text-ivory/80">Iran after 1979, Yemen's collapse and Venezuela's constitutional rupture, measured against their own counterfactual histories.</p></article>
+        <article class="bg-navy p-7 sm:p-8 flex flex-col gap-4"><span class="num text-[12px] text-brass">II</span><h3 class="font-serif text-[25px] leading-[1.25]">Courts, time and growth</h3><p class="text-[15px] leading-[1.7] text-ivory/80">Why slow justice and captured courts show up in GDP, from Spanish provinces to Türkiye and Poland.</p></article>
+        <article class="bg-navy p-7 sm:p-8 flex flex-col gap-4"><span class="num text-[12px] text-brass">III</span><h3 class="font-serif text-[25px] leading-[1.25]">The dividends of peace</h3><p class="text-[15px] leading-[1.7] text-ivory/80">What Egypt and Jordan gained from normalisation with Israel, and what that implies for the region today.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-ivory">
+    <div class="mx-auto max-w-page px-4 sm:px-8 py-16 md:py-20 grid grid-cols-1 lg:grid-cols-12 gap-14">
+      <div class="lg:col-span-7 min-w-0">
+        <p class="opener eyebrow text-slate">Selected conference presentations</p>
+        <ol id="keyTalks" class="mt-8 border-t border-navy/70"></ol>
+      </div>
+      <div class="lg:col-span-5 min-w-0">
+        <p class="opener eyebrow text-slate">Invited seminars</p>
+        <ul id="seminars" class="mt-8 border-t border-rule text-[15px]"></ul>
+        <p class="opener eyebrow text-slate mt-14">Ringvorlesung, Bucerius Law School</p>
+        <ul class="mt-6 border-t border-rule text-[15px]">
+          <li class="py-3.5 border-b border-rule"><span class="num text-[12px] text-slate block">May 2022</span>Constitutional Monarchy and Long-Run Growth: Friends or Foes?</li>
+          <li class="py-3.5 border-b border-rule"><span class="num text-[12px] text-slate block">Apr 2021</span>Does E-Procurement Improve Institutional Quality and the Rule of Law? Evidence from Catalonia</li>
+          <li class="py-3.5 border-b border-rule"><span class="num text-[12px] text-slate block">May 2020</span>The Long Shadow of Opus Dei: Democracy and Economic Growth in Spain</li>
+          <li class="py-3.5 border-b border-rule"><span class="num text-[12px] text-slate block">Jun 2018</span>Vincit Qui Se Vincit: Institutional Dependence and Regional Divergence in Postwar Italy</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ======================================================= TEACHING ======================================================= -->
+<div data-view="teaching" hidden>
+  <section class="bg-ivory">
+    <div class="mx-auto max-w-page px-4 sm:px-8 pt-16 md:pt-24 pb-14 grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+      <div class="lg:col-span-8 min-w-0">
+        <p class="eyebrow text-oxblood">Teaching</p>
+        <h1 class="font-serif font-light text-[clamp(44px,6vw,72px)] leading-[1.02] tracking-[-0.02em] text-navy mt-5">From first-year macroeconomics to doctoral causal inference</h1>
+        <p class="mt-6 text-[17px] leading-[1.75] text-charcoal/85 measure">Courses at the School of Economics and Business and the Faculty of Civil and Geodetic Engineering, University of Ljubljana, taught in English and Slovenian.</p>
+      </div>
+      <dl class="lg:col-span-4 grid grid-cols-3 gap-4 border-t border-navy/70 pt-5">
+        <div><dt class="eyebrow !text-[10px] text-slate">Doctoral</dt><dd class="font-serif text-[36px] leading-none mt-2 text-navy">1</dd></div>
+        <div><dt class="eyebrow !text-[10px] text-slate">Master's</dt><dd class="font-serif text-[36px] leading-none mt-2 text-navy">5</dd></div>
+        <div><dt class="eyebrow !text-[10px] text-slate">Undergrad</dt><dd class="font-serif text-[36px] leading-none mt-2 text-navy">3</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="bg-parchment">
+    <div class="mx-auto max-w-page px-4 sm:px-8 py-16 md:py-20" id="courseList"></div>
+  </section>
+
+  <section class="on-navy bg-navy text-ivory">
+    <div class="mx-auto max-w-page px-4 sm:px-8 py-16 md:py-20 grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <div class="min-w-0">
+        <p class="opener eyebrow text-brass">Doctoral students</p>
+        <ul class="mt-8 border-t border-white/15 text-[16px]">
+          <li class="flex justify-between gap-4 py-4 border-b border-white/15"><span>Klemen Knez</span><span class="num text-[12px] text-mist">PhD 2023</span></li>
+          <li class="flex justify-between gap-4 py-4 border-b border-white/15"><span>Behare Sholla</span><span class="num text-[12px] text-mist">in progress</span></li>
+          <li class="flex justify-between gap-4 py-4 border-b border-white/15"><span>Ana-Marija Filipas</span><span class="num text-[12px] text-mist">in progress</span></li>
+        </ul>
+      </div>
+      <div class="min-w-0">
+        <p class="opener eyebrow text-brass">Examination committees</p>
+        <ul class="mt-8 border-t border-white/15 text-[15px]">
+          <li class="py-4 border-b border-white/15"><span class="num text-[12px] text-mist block">2024</span>L. Marković and D. Pavlič, University of Ljubljana</li>
+          <li class="py-4 border-b border-white/15"><span class="num text-[12px] text-mist block">2022</span>L.A. Esposito, EconomiX, Université Paris Nanterre</li>
+          <li class="py-4 border-b border-white/15"><span class="num text-[12px] text-mist block">2022</span>S. Bonilla Cárdenas, University of Ljubljana (chair)</li>
+          <li class="py-4 border-b border-white/15"><span class="num text-[12px] text-mist block">2020</span>U. Nizza, Università del Piemonte Orientale (secretary)</li>
+        </ul>
+      </div>
+      <div class="min-w-0">
+        <p class="opener eyebrow text-brass">Master's theses</p>
+        <p class="mt-8 text-[15px] leading-[1.75] text-ivory/85">Supervisor or co-supervisor of nine master's theses at the University of Ljubljana and the University of Siena.</p>
+        <p class="mt-6 text-[15px] leading-[1.75] text-ivory/85">Students interested in doctoral work on institutions, conflict or causal methods are welcome to write with a short research proposal.</p>
+        <a href="#contact" class="link inline-block mt-5 text-[14px] text-brass">Contact →</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ======================================================= ABOUT ======================================================= -->
+<div data-view="about" hidden>
+  <section class="bg-ivory">
+    <div class="mx-auto max-w-page px-4 sm:px-8 pt-16 md:pt-24 pb-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <div class="lg:col-span-8 min-w-0">
+        <p class="eyebrow text-oxblood">About</p>
+        <h1 class="font-serif font-light text-[clamp(44px,6vw,72px)] leading-[1.02] tracking-[-0.02em] text-navy mt-5">An economist of institutions and their breakdowns</h1>
+        <div class="mt-10 space-y-5 text-[18px] leading-[1.75] text-charcoal measure">
+          <p>Rok Spruk is Associate Professor of Economics at the School of Economics and Business, University of Ljubljana, and Adjunct Research Fellow at the University of Western Australia. He earned his PhD in quantitative economic history at Utrecht University in 2016 under Jan Luiten van Zanden, with a thesis on institutions, growth and long-run development paths.</p>
+          <p>His work estimates the long-run economic consequences of revolutions, wars, constitutional change, judicial reform and regulation, mostly with synthetic control and other counterfactual methods. He has held visiting positions at Bucerius Law School in Hamburg and at EconomiX, CNRS – Université Paris Nanterre, and advises the European Commission's DG Regional and Urban Policy on regional policy evaluation; he wrote the synthetic control study for the Commission's ex post evaluation of the 2014–2020 Cohesion Policy.</p>
+          <p>He serves as Associate Editor of the <em>International Review of Law and Economics</em> and <em>Acta Oeconomica</em>.</p>
+        </div>
+      </div>
+      <aside class="lg:col-span-4 min-w-0 lg:pt-24">
+        <dl class="border-t border-navy/70">
+          <div class="py-4 border-b border-rule"><dt class="eyebrow !text-[11px] text-slate">Fields</dt><dd class="mt-2 text-[15px] leading-6">Economic growth · Development · Causal inference · Applied econometrics · New institutional economics · Empirical political economy · Empirical law and economics</dd></div>
+          <div class="py-4 border-b border-rule"><dt class="eyebrow !text-[11px] text-slate">Languages</dt><dd class="mt-2 text-[15px] leading-6">English, German, Spanish, Italian (fluent) · French (good) · Portuguese, Dutch (basic)</dd></div>
+          <div class="py-4 border-b border-rule"><dt class="eyebrow !text-[11px] text-slate">Selected collaborators</dt><dd id="collabs" class="mt-2 text-[15px] leading-6"></dd></div>
+          <div class="py-4 border-b border-rule"><dt class="eyebrow !text-[11px] text-slate">ORCID</dt><dd class="mt-2 num text-[14px]"><a class="link" href="https://orcid.org/0000-0002-7269-2339" target="_blank" rel="noopener">0000-0002-7269-2339</a></dd></div>
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  <section class="bg-parchment">
+    <div class="mx-auto max-w-page px-4 sm:px-8 py-16 md:py-20 grid grid-cols-1 lg:grid-cols-2 gap-14">
+      <div class="min-w-0">
+        <p class="opener eyebrow text-slate">Appointments</p>
+        <ol class="mt-8 border-t border-navy/70" id="appointments"></ol>
+        <p class="opener eyebrow text-slate mt-14">Education</p>
+        <ol class="mt-8 border-t border-navy/70">
+          <li class="grid grid-cols-[80px_1fr] gap-4 py-4 border-b border-rule"><span class="num text-[13px] text-slate">2016</span><span><span class="text-navy font-medium">PhD, Quantitative Economic History</span>, Utrecht University<span class="block text-[14px] text-slate mt-1">Promotor J.L. van Zanden; co-promotors B. van Leeuwen, P. Földvári</span></span></li>
+          <li class="grid grid-cols-[80px_1fr] gap-4 py-4 border-b border-rule"><span class="num text-[13px] text-slate">2012</span><span><span class="text-navy font-medium">MSc, Economics</span>, Utrecht University</span></li>
+          <li class="grid grid-cols-[80px_1fr] gap-4 py-4 border-b border-rule"><span class="num text-[13px] text-slate">2010</span><span><span class="text-navy font-medium">BSc, Economics</span>, University of Ljubljana</span></li>
+        </ol>
+      </div>
+      <div class="min-w-0">
+        <p class="opener eyebrow text-slate">Honours and grants</p>
+        <ol class="mt-8 border-t border-navy/70" id="awards"></ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-ivory">
+    <div class="mx-auto max-w-page px-4 sm:px-8 py-16 md:py-20 grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <div class="min-w-0">
+        <p class="opener eyebrow text-slate">Editorial service</p>
+        <ul class="mt-8 space-y-4 text-[16px]">
+          <li><span class="text-navy font-medium">Associate Editor</span><span class="block font-serif italic text-[18px]">International Review of Law and Economics</span></li>
+          <li><span class="text-navy font-medium">Associate Editor</span><span class="block font-serif italic text-[18px]">Acta Oeconomica</span></li>
+          <li><span class="text-navy font-medium">External grant reviewer</span><span class="block text-[15px] text-slate">Social Sciences and Humanities Research Council of Canada</span></li>
+        </ul>
+      </div>
+      <div class="min-w-0">
+        <p class="opener eyebrow text-slate">Professional associations</p>
+        <p class="mt-8 text-[15px] leading-[1.75] text-charcoal/90">Econometric Society · American Economic Association · European Association of Law and Economics · German, Spanish and Italian Law and Economics Associations · Italian Econometric Association · European Association for Research in Industrial Economics</p>
+      </div>
+      <div class="min-w-0">
+        <p class="opener eyebrow text-slate">Refereeing</p>
+        <p class="mt-8"><span class="font-serif text-[40px] leading-none text-navy">100+</span><span class="block text-[14px] text-slate mt-2">papers refereed, for journals including</span></p>
+        <p class="mt-4 font-serif italic text-[16px] leading-[1.7] text-charcoal/90">Journal of the American Statistical Association · Journal of Applied Econometrics · Journal of Law and Economics · Journal of Economic Behavior and Organization · Economic Inquiry · Journal of Institutional Economics · Journal of Empirical Legal Studies · BMJ Global Health · Journal of Regional Science</p>
+        <p class="mt-3 text-[13px] text-slate">Best Reviewer of the Year, Journal of Institutional Economics, 2023</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ======================================================= CONTACT ======================================================= -->
+<div data-view="contact" hidden>
+  <section class="on-navy bg-navy text-ivory">
+    <div class="mx-auto max-w-page px-4 sm:px-8 pt-16 md:pt-24 pb-20 grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <div class="lg:col-span-7 min-w-0">
+        <p class="eyebrow text-brass">Contact</p>
+        <h1 class="font-serif font-light text-[clamp(44px,6vw,72px)] leading-[1.02] tracking-[-0.02em] mt-5">Get in touch</h1>
+        <p class="mt-6 text-[17px] leading-[1.75] text-ivory/85 measure">For speaking invitations, include the event, date, audience and format (keynote, panel, seminar or briefing). For media requests, include your deadline.</p>
+        <div class="mt-10 flex flex-wrap items-center gap-4">
+          <span class="font-serif text-[clamp(22px,3vw,30px)] select-all break-all">rok.spruk@ef.uni-lj.si</span>
+          <button id="copyEmail" class="border border-white/30 text-[13px] px-4 py-2 hover:border-brass hover:text-brass transition-colors">Copy email</button>
+        </div>
+      </div>
+      <div class="lg:col-span-5 min-w-0 lg:pt-16">
+        <dl class="border-t border-white/20">
+          <div class="py-5 border-b border-white/15"><dt class="eyebrow !text-[11px] text-mist">Office</dt><dd class="mt-2 text-[16px] leading-7">School of Economics and Business<br>University of Ljubljana<br>Kardeljeva ploščad 17, SI-1000 Ljubljana</dd></div>
+          <div class="py-5 border-b border-white/15"><dt class="eyebrow !text-[11px] text-mist">Telephone</dt><dd class="mt-2 num text-[15px]">+386 1 589 25 80</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+  <section class="bg-ivory">
+    <div class="mx-auto max-w-page px-4 sm:px-8 py-16 md:py-20">
+      <p class="opener eyebrow text-slate">Research profiles</p>
+      <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t border-l border-rule" id="profiles"></div>
+    </div>
+  </section>
+</div>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="on-navy bg-navy text-ivory border-t border-white/10">
+  <div class="mx-auto max-w-page px-4 sm:px-8 py-14 grid grid-cols-1 md:grid-cols-12 gap-10">
+    <div class="md:col-span-5 min-w-0">
+      <p class="font-serif text-[28px]">Rok Spruk</p>
+      <p class="text-[14px] leading-6 text-mist mt-3">Associate Professor of Economics<br>School of Economics and Business, University of Ljubljana</p>
+    </div>
+    <nav aria-label="Footer" class="md:col-span-4 grid grid-cols-2 gap-3 text-[14px] text-mist">
+      <a class="link" href="#research">Research</a><a class="link" href="#policy">Policy &amp; Media</a>
+      <a class="link" href="#speaking">Speaking</a><a class="link" href="#teaching">Teaching</a>
+      <a class="link" href="#about">About</a><a class="link" href="#contact">Contact</a>
+      <a class="link" href="https://scholar.google.com/citations?user=Ym9COZoAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+      <a class="link" href="https://twitter.com/rokspruk" target="_blank" rel="noopener">X / Twitter</a>
+    </nav>
+    <p class="md:col-span-3 md:text-right text-[12px] text-mist/70 num self-end">© 2026 Rok Spruk</p>
+  </div>
+</footer>
+
+<div id="toast" class="fixed left-1/2 -translate-x-1/2 bg-navy text-ivory text-[13px] px-4 py-2.5 z-50 border border-white/10" style="bottom: calc(24px + env(safe-area-inset-bottom, 0px))" hidden role="status" aria-live="polite"></div>
+
+<script>
+/* ================= DATA (from CV, 2026) ================= */
+const THEMES = {
+  law:       { name: 'Courts & Law',              blurb: 'Judicial speed, independence and legal origins as engines of growth.' },
+  conflict:  { name: 'Conflict & Revolution',     blurb: 'Wars, revolutions and state collapse, from the Balkans to Iran.' },
+  democracy: { name: 'Democracy & Constitutions', blurb: 'Regimes, backsliding, federalism and constitutional ruptures.' },
+  growth:    { name: 'Institutions & Growth',     blurb: 'Economic freedom, transaction costs and the origins of world income.' },
+  regulation:{ name: 'Regulation & the State',    blurb: 'Legislative volume, procurement and the cost of rules.' },
+  health:    { name: 'Health & Public Policy',    blurb: 'Austerity, trans-fat bans, pensions and aid transitions.' },
+  methods:   { name: 'Methods & Measurement',     blurb: 'Synthetic control, latent variables and measuring institutions.' }
+};
+const R = 'https://ideas.repec.org/a/';
+const ARTICLES = [
+  [49,2026,'Counterfactual Identification of Institutional Rupture: Evidence From Constitutional Transformation in Venezuela','N. Garoupa, V. Rosales','Journal of Law and Empirical Analysis','Forthcoming','democracy'],
+  [48,2026,'Effect of Austerity Measures on Infant Mortality: Evidence from Greece','R.J. Kolesar','Health Economics','35, 1175–1191','health',R+'wly/hlthec/v35y2026i8p1175-1191.html'],
+  [47,2026,'Do Enforcement Institutions Matter for Economic Specialization? Province-Level Evidence from Spain','J.S. Mora-Sanguinetti','Annals of Regional Science','75: 1–37','law',R+'spr/anresc/v75y2026i2d10.1007_s00168-026-01479-6.html'],
+  [46,2026,'Ethnic Conflicts, Civil War and Economic Growth: Region-Level Evidence from Former Yugoslavia','A. Kešeljević, S. Nikolić','Journal of Regional Science','66, 950–977','conflict',R+'bla/jregsc/v66y2026i3p950-977.html'],
+  [45,2025,'Constitutional Monarchy and Long-Run Economic Growth: Friends or Foes?','N. Garoupa','European Journal of Law and Economics','61, 113–150','democracy',R+'kap/ejlwec/v61y2026i1d10.1007_s10657-025-09859-7.html'],
+  [44,2025,'Timely Justice as a Determinant of Economic Growth','S. Djankov, G.B. Ramello, A. Melcarne','Journal of Economic Behavior and Organization','238, 1–16','law',R+'eee/jeborg/v238y2025ics0167268125003543.html'],
+  [43,2025,'Populist Constitutional Backsliding and Judicial Independence: Evidence from Türkiye','N. Garoupa','International Review of Law and Economics','84, 1–18','democracy',R+'eee/irlaec/v84y2025ics0144818825000572.html'],
+  [42,2025,'The Impact of ‘Green Regulation’ on Firm Innovation','J.S. Mora-Sanguinetti, C. Peñasco','Revue d’Économie Industrielle','188: 39–87','regulation'],
+  [41,2025,'Revolutions as Structural Breaks: The Long-Term Economic and Institutional Consequences of the 1979 Iranian Revolution','N. Garoupa','Constitutional Political Economy','36, 273–301','conflict',R+'kap/copoec/v36y2025i3d10.1007_s10602-025-09471-6.html'],
+  [40,2025,'The Missing Window of Opportunity and Quasi-Experimental Effects of Institutional Integration: Evidence from Ukraine','C.N. Focacci, M. Kovač','Review of Law and Economics','21(2): 561–576','democracy','https://ideas.repec.org/a/bpj/rlecon/v21y2025i2p561-576n1008.html'],
+  [39,2024,'The Boulevard of Broken Dreams? Long-Run Effects of Labor-Managed Socialism','N. Garoupa, M. Kovač','European Journal of Comparative Economics','21(2): 167–210','growth'],
+  [38,2024,'Long-Term Effects of Deep Institutional Shocks: Historical Evidence from Mexico','S. Dothan, M. Kovač','Journal of Government and Economics','16: 1–24','growth'],
+  [37,2024,'Measuring Political Institutions in the Long Run: A Latent Variable Analysis of Political Regimes, 1810–2018','N. Garoupa','Social Indicators Research','173(3): 867–914','methods',R+'spr/soinre/v173y2024i3d10.1007_s11205-024-03364-1.html'],
+  [36,2024,'The Heterogenous Effects of a Higher Volume of Regulation: Evidence from more than 200k Spanish Norms','J.S. Mora-Sanguinetti, J. Quintana, I. Soler','Journal of Regulatory Economics','65, 137–153','regulation',R+'kap/regeco/v65y2024i1d10.1007_s11149-023-09466-x.html'],
+  [35,2024,'Using Synthetic Control Method to Estimate the Growth Effects of Economic Liberalisation: Evidence from Transition Economies','J. Kantorowicz','The World Economy','47(6): 2332–2360','growth',R+'bla/worlde/v47y2024i6p2332-2360.html'],
+  [34,2023,'Evaluating Country Performance after Transitioning from Gavi Assistance: An Applied Synthetic Control Analysis','R.J. Kolesar, T. Tsheten','Global Health: Science and Practice','11(4): 1–14','health'],
+  [33,2023,'Estimating the Effects of Political Instability in Nascent Democracies','T.J. Emery, M. Kovač','Journal of Economics and Statistics','243(6): 599–642','democracy',R+'jns/jbstat/v243y2023i6p599-642n4.html'],
+  [32,2023,'Ethnolinguistic Diversity, Quality of Local Public Institutions and Firm-Level Innovation','C.N. Focacci, M. Kovač','International Review of Law and Economics','75, 1–22','growth',R+'eee/irlaec/v75y2023ics0144818823000339.html'],
+  [31,2023,'Estimating the Effects of Syrian Civil War','A. Kešeljević','Empirical Economics','66(2): 671–703','conflict',R+'spr/empeco/v66y2024i2d10.1007_s00181-023-02470-2.html'],
+  [30,2023,'Long-Term Effects of Sectarian Politics: Evidence from Lebanon','T.J. Emery','Socio-Economic Review','22(2): 787–810','conflict'],
+  [29,2023,'The Benefits of Statehood: Historical Analysis of the Growth Effects of Joining the United States of America','R.K.J. Maseland','Cliometrica','17(1): 49–89','growth',R+'spr/cliomt/v17y2023i1d10.1007_s11698-022-00247-8.html'],
+  [28,2023,'Does E-Procurement Matter for Economic Growth? Subnational Evidence from Australia','T.J. Emery, L. Mélon','Quarterly Review of Economics and Finance','89, 318–334','regulation',R+'eee/quaeco/v89y2023icp318-334.html'],
+  [27,2023,'The Impact of Unilateral BIT Terminations on FDI: Quasi-Experimental Evidence from India','S. Hartmann','Review of International Organizations','18, 259–296','law',R+'spr/revint/v18y2023i2d10.1007_s11558-022-09471-3.html'],
+  [26,2023,'Economic Effects of Recent Experiences of Federalism: Analysis of the Regionalization Process in Spain','J.S. Mora-Sanguinetti','Journal of Regional Science','63(1): 30–63','democracy',R+'bla/jregsc/v63y2023i1p30-63.html'],
+  [25,2023,'Long-Term Effects of Populist Legal Reforms: Evidence from Argentina','M. Marzetti','Comparative Economic Studies','65, 60–95','law',R+'pal/compes/v65y2023i1d10.1057_s41294-022-00193-4.html'],
+  [24,2023,'Synthetic Control Estimator: A Tool for Comparative Economic History','D. Gilchrist, T. Emery, N. Garoupa','Journal of Economic Surveys','37(2): 405–445','methods',R+'bla/jecsur/v37y2023i2p409-445.html'],
+  [23,2023,'Long-Term Effects of Yugoslav War','A. Kešeljević','Defence and Peace Economics','34(4): 410–436','conflict',R+'taf/defpea/v34y2023i4p410-436.html'],
+  [22,2021,'Regional Convergence and Trade Liberalization under Weak State Capacity: Evidence from Mexico','','European Journal of Comparative Economics','18(2): 173–216','growth',R+'liu/liucej/v18y2021i2p173-216.html'],
+  [21,2021,'Bono Malum Superate: Long-Run Effects of Radical Institutional Change','F. Asta, L. Mélon','Journal of Government and Economics','2: 1–20','democracy',R+'eee/jogoec/v2y2021ics2667319321000082.html'],
+  [20,2021,'Diversification of Procedural and Administrative Costs and Innovation: Some Firm-Level Evidence','M. Kovač','International Journal of Innovation Studies','5: 56–98','regulation'],
+  [19,2021,'Pharmaceutical Product Liability and the Propensity to Patent: An Empirical Firm-Level Investigation','S. Datta, M. Kovač','SAGE Open','11(2): 1–18','law',R+'sae/sagope/v11y2021i2p21582440211009470.html'],
+  [18,2020,'Persistent Effects of Colonial Institutions on Long-Run Development: Local Evidence from Regression Discontinuity Design in Argentina','M. Kovač','Journal of Empirical Legal Studies','17(4): 820–861','growth',R+'wly/empleg/v17y2020i4p820-861.html'],
+  [17,2020,'Is Justice Delayed Justice Denied? An Empirical Approach','G.B. Ramello, A. Melcarne','International Review of Law and Economics','65, 1–9','law',R+'eee/irlaec/v65y2021ics0144818820301666.html'],
+  [16,2020,'Long-Term Effects of Institutional Instability','S. Hartmann','Empirical Economics','61(4): 2073–2112','democracy',R+'spr/empeco/v61y2021i4d10.1007_s00181-020-01934-z.html'],
+  [15,2020,'The Impact of E-Procurement on Institutional Quality','L. Mélon','Journal of Public Procurement','20(4): 333–375','regulation',R+'eme/jopppp/jopp-07-2019-0050.html'],
+  [14,2020,'Does a Ban on Trans Fats Improve Public Health? Synthetic Control Evidence from Denmark','M. Kovač','Swiss Journal of Economics and Statistics','156: 1–32','health',R+'spr/sjecst/v156y2020i1d10.1186_s41937-019-0048-0.html'],
+  [13,2019,'The Rise and Fall of Argentina','','Latin American Economic Review','28(1): 1–40','growth',R+'spr/laecrv/v28y2019i1d10.1186_s40503-019-0076-2.html'],
+  [12,2019,'Replicating and Extending Martin-Quinn Scores','M. Kovač','International Review of Law and Economics','60, 1–14','methods',R+'eee/irlaec/v60y2019ics0144818819302261.html'],
+  [11,2019,'Does a Ban on Trans Fats Improve Public Health? In Search of Optimal Policy Response','M. Kovač','Journal of Regulatory Economics','55(3): 258–281','health',R+'kap/regeco/v55y2019i3d10.1007_s11149-019-09387-8.html'],
+  [10,2019,'Transaction Costs and Economic Growth under Common Legal System: State-Level Evidence from Mexico','M. Kovač','Economics & Politics','31(2): 240–292','growth',R+'bla/ecopol/v31y2019i2p240-292.html'],
+  [9,2019,'Political Economy of Pension Reforms: An Empirical Investigation','M. Verbič','European Journal of Law and Economics','47(2): 171–232','health',R+'kap/ejlwec/v47y2019i2d10.1007_s10657-018-9606-7.html'],
+  [8,2018,'Inefficient Growth?','M. Kovač','Review of Economics and Institutions','9(2): 1–59','growth',R+'pia/review/v9y2018i2n3.html'],
+  [7,2018,'Economic Freedom and Growth Across German Districts','A. Kešeljević','Journal of Institutional Economics','14(4): 739–765','growth',R+'cup/jinsec/v14y2018i04p739-765_00.html'],
+  [6,2016,'Institutional Transformation and the Origins of World Income Distribution','','Journal of Comparative Economics','44(4): 936–960','growth'],
+  [5,2016,'Institutional Development, Transaction Costs and Economic Growth: Evidence from a Cross-Country Investigation','M. Kovač','Journal of Institutional Economics','12(1): 129–159','growth',R+'cup/jinsec/v12y2016i01p129-159_00.html'],
+  [4,2016,'Institutional Origins of Subjective Well-Being: Estimating the Effects of Economic Freedom on National Happiness','A. Kešeljević','Journal of Happiness Studies','17(2): 659–712','growth'],
+  [3,2014,'Global Distribution and Dynamics of Economic Freedom: Non-Parametric Approach','A. Kešeljević','Economic Modelling','33: 560–571','methods',R+'eee/ecmode/v33y2013icp560-571.html'],
+  [2,2013,'Endogenous Economic Freedom and the Wealth of Nations: Evidence from a Panel of Countries, 1996–2011','A. Kešeljević','Applied Economics','45(28): 3952–3962','growth',R+'taf/applec/v45y2013i28p3952-3962.html'],
+  [1,2013,'Aging Population and Public Pensions: Theory and Macroeconometric Evidence','M. Verbič','Panoeconomicus','61(3): 289–316','health']
+].map(a => ({ type:'article', n:a[0], year:a[1], title:a[2], co:a[3], venue:a[4], detail:a[5], theme:a[6], url:a[7] }));
+
+const REVIEW = [
+  ['The Economic Dividends of Peace: Evidence from Arab-Israeli Normalization','M. Kovač','Revisions requested','conflict','https://arxiv.org/abs/2510.14517'],
+  ['Islamic Law, Western European Law and the Roots of Middle East’s Long Divergence: A Comparative Empirical Investigation (800–1600)','H.B. Schäfer','Revisions requested','law','https://arxiv.org/abs/2401.14435'],
+  ['The Political Determinants of Court-Curbing under Democratic Regimes: An Empirical Investigation','A. Aydin-Cakir, N. Garoupa','Revisions requested','democracy'],
+  ['Litigation and the Mortgage Market: Evidence from Spain','F. Gómez-Pomar, A. Segura','Revisions requested','law'],
+  ['Compliance with International Law in a Dynamic Equilibrium','S. Dothan, M. Kovač','Under review','law']
+].map(a => ({ type:'review', title:a[0], co:a[1], venue:a[2], theme:a[3], url:a[4], year: 2026 }));
+
+const WORKING = [
+  ['Public Signals, Concealed Choices: Dynamic Measurement without Behavioral Identification','','arXiv 2608.21077','methods','2608.21077',2026],
+  ['Reputation, Exposure and Exit: Organizational Turnover after #MeToo','R. Baharad, A. Eckstein, G. Parchomovsky','arXiv 2606.03491','law','2606.03491',2026],
+  ['Long-Term Health and Human Capital Effects of Universal Health Care and Mass Literacy: Evidence from Cuba','G. Mellace','arXiv 2605.29785','health','2605.29785',2026],
+  ['Statehood Without Capacity','','arXiv 2604.11384','democracy','2604.11384',2026],
+  ['Confrontation with the West and Long-Run Economic and Institutional Outcomes: Evidence from Iran','','arXiv 2602.03231','conflict','2602.03231',2026],
+  ['Pricing Catastrophe: How Extreme Political Shocks Reprice Sovereign Risk, Beliefs and Growth Expectations','R. Ichev','arXiv 2601.20724','conflict','2601.20724',2026],
+  ['From Revolution to Ruin: An Empirical Analysis of Yemen’s State Collapse','R. Ichev','arXiv 2507.08512','conflict','2507.08512',2025],
+  ['When Peace Becomes a Threat: Conflict Rents, Strategic Irrelevance, and the Political Economy of Spoiling','','Working paper','conflict','',2026],
+  ['Democracy, Technocracy and Economic Growth: Evidence from 20th Century Spain','A. Melcarne, J.S. Mora-Sanguinetti','Banco de España WP 2118','democracy','',2021]
+].map(a => ({ type:'working', title:a[0], co:a[1], venue:a[2], theme:a[3], url: a[4] ? 'https://arxiv.org/abs/'+a[4] : (a[2].includes('2118') ? 'https://ideas.repec.org/p/bde/wpaper/2118.html' : ''), year:a[5] }));
+
+const BOOKS = [
+  ['European Regional Development: Fate, Fortune or Good Policies?','','Monograph · European Liberal Forum, Brussels','growth',2018],
+  ['A Region-Level Analysis of the Long-Term Economic Effects of Joining the European Union','N. Garoupa','In Kämmerer, Schäfer and Basu (eds.), The EU Reexamined, Edward Elgar','growth',2024],
+  ['E-Procurement and Institutional Quality: Friends or Foes? Evidence from Catalonia','L. Mélon, T.J. Emery','In Mélon (ed.), Sustainability in Public Procurement, Corporate Law and Higher Education, Routledge','regulation',2023],
+  ['Quality of Local Public Institutions, Productivity and Firm-Level Innovation: Evidence from Slovenia','M. Kovač','In Achieving Growth That Matters, Finance, Ljubljana','growth',2022],
+  ['Reliable Research Methods in Applied Econometrics for Competition Law','','In Kovač and Vandenberghe (eds.), Economic Evidence in EU Competition Law, Intersentia','methods',null]
+].map(a => ({ type:'book', title:a[0], co:a[1], venue:a[2], theme:a[3], year:a[4] }));
+
+const WIP = [
+  ['A Theory of Moral Inversion','Ronen Gradwohl, Arye Hillman'],
+  ['Ex Ante Digital Regulation and Market Structure: Evidence from the EU Digital Markets Act','O. Vázquez Duque'],
+  ['Constitutional Reform in the United Kingdom: Advancing Judicial Independence?','N. Garoupa'],
+  ['Institutional Effects of Democratic Erosion in the European Union','I. Duarte'],
+  ['The WW2 Axis Occupation Legacy and Political Behavior: Local-Level Evidence from Slovenia','D. Ivanov, D. Medvedev'],
+  ['False Deterrence: Strategic Deception, Political Disruption, and the Endogenous Failure of Intelligence Learning','R. Baharad, A. Eckstein, G. Parchomovsky'],
+  ['Historical Borders, Institutional Legacies, and Long-Run Development: The Ottoman-Habsburg Frontier','A. Hillman'],
+  ['Refugees and Strategic Conflict','S. Das, A. Hillman'],
+  ['Economic Effects of Failing States: Evidence from Hamas Rule in Gaza','T. Emery'],
+  ['Do Experts Measure Institutions or Expectations? Political Reversals and the Measurement of Democratic Institutions','N. Garoupa, A. Lewczuk'],
+  ['Judicial Quality and the Credit Market: The Case of Spanish Mortgages','F. Gómez-Pomar, V. Rosales, A. Segura'],
+  ['The Long-Term Effects of Gender Equality: Evidence from the 1975 Reform in Spain','B. Imre'],
+  ['Structural Bias in Mixed Vote Aggregation Systems','S. Lavie, A. Tabbach'],
+  ['Long-Term Effects of the Austrian Empire’s Collapse: Multi-Country Subnational Evidence','S. Hartmann']
+];
+
+const SELECTED = [6, 44, 48, 30, 27, 24];
+
+/* Published findings, paraphrased from each article's abstract (and, for no. 45, National Affairs' summary). */
+const FINDINGS = {
+  48: { big: '+43%', label: 'Infant mortality in Greece after austerity', text: 'Infant mortality rose about 43% above its synthetic counterfactual after 2010, roughly 854 excess infant deaths by 2020, concentrated among newborns.' },
+  31: { big: '4,500+', label: 'Additional infant deaths in Syria', text: 'The civil war left lasting damage to human development and institutions, with more than 4,500 additional infant deaths, while the growth effect proved temporary.' },
+  44: { big: '169', label: 'Countries: slow courts, slower growth', text: 'Across 169 countries in 2004–2019, slower courts reduce growth by raising uncertainty and opportunism, most strongly in civil-law and fast-growing economies.' },
+  45: { big: '37', label: 'Countries, 1870–2018: monarchy and growth', text: 'Prosperity sustains constitutional monarchy rather than the reverse; poorer monarchies gave way to republics that then outperformed them.' },
+  41: { big: '1979', label: 'The lasting cost of Iran’s revolution', text: 'Against a synthetic Iran built from 66 countries, per capita income, institutional quality and limits on executive power diverge persistently after 1979.' },
+  36: { big: '200k+', label: 'Spanish regional norms and their cost', text: 'Sectors and regions exposed to more regulation have lower employment and activity and fewer new firms, with small and young firms hit hardest.' }
+};
+const FINDING_ORDER = [48, 44, 41, 31, 45, 36];
+
+const COLLABORATORS = ['Simeon Djankov','Nuno Garoupa','Mitja Kovač','Juan S. Mora-Sanguinetti','Alessandro Melcarne','Giovanni B. Ramello','Hans-Bernd Schäfer','Gideon Parchomovsky','Arye Hillman','Ronen Gradwohl','Robbert Maseland','Aleksandar Kešeljević','Shai Dothan','Fernando Gómez-Pomar','Giovanni Mellace'];
+
+const COURSES = [
+  ['Doctoral', [
+    ['Panel-Data Econometrics and Causal Inference', 'PhD programme · School of Economics and Business', 'Identification with panel data, difference-in-differences, synthetic control and related counterfactual estimators.']
+  ]],
+  ["Master's", [
+    ['Quantitative Methods for Policy Impact Evaluation', 'School of Economics and Business', 'Counterfactual evaluation of public policy, from design to decision-relevant evidence.'],
+    ['Applied Economics with Machine Learning', 'School of Economics and Business', ''],
+    ['Economics of Climate Change', 'School of Economics and Business', ''],
+    ['Comparative Analysis of Economic and Business Systems', 'School of Economics and Business', ''],
+    ['Comparative Data Analysis of Economic and Business Systems', 'School of Economics and Business', '']
+  ]],
+  ['Undergraduate', [
+    ['Macroeconomics 1 · Makroekonomija 1', 'School of Economics and Business · English and Slovenian', 'Foundations of growth, business cycles, money and fiscal policy.'],
+    ['Socio-Economic Development and Contemporary Slovenia', 'School of Economics and Business', '']
+  ]],
+  ['Faculty of Civil and Geodetic Engineering', [
+    ['Quantitative Methods in Flood Risk', 'University of Ljubljana', 'Statistical and econometric tools for assessing flood risk and its economic consequences.']
+  ]]
+];
+
+const PRESS = [
+  ['Spring 2026','National Affairs','Detailing the Regime','https://www.nationalaffairs.com/blog/detail/findings-a-daily-roundup/detailing-the-regime'],
+  ['Aug 2024','El Confidencial','El juez que explica los turbadores efectos del exceso de regulación para la gente común',''],
+  ['Jan 2024','El País','La pesada carga de la regulación','https://elpais.com/economia/negocios/2024-01-28/la-pesada-carga-de-la-regulacion.html'],
+  ['Jan 2024','The Objective','El ogro burocrático','https://theobjective.com/elsubjetivo/opinion/2024-01-30/ogro-burocratico-burocracia/'],
+  ['Jan 2024','Noticias Jurídicas','España supera las 200.000 normas y eso es una mala noticia para la economía','https://noticias.juridicas.com/actualidad/noticias/18703--espana-supera-las-200-000-normas-y-eso-es-una-mala-noticia-para-la-economia/'],
+  ['Oct 2023','Inter-American Dialogue','What Would BRICS Membership Mean for Argentina?','https://www.thedialogue.org/wp-content/uploads/2023/10/LAA231013.pdf'],
+  ['Sep 2023','The Objective','¿En qué momento se jodió la Argentina y existe alguna forma de acabar con la maldición?','https://theobjective.com/economia/2023-09-13/momento-se-jodio-argentina/'],
+  ['Jul 2023','Economía Digital','España necesita un plan de choque contra la hiperregulación','https://www.economiadigital.es/ideas/espana-necesita-un-plan-de-choque-contra-la-hiperregulacion.html'],
+  ['Jun 2023','Nada es Gratis','Desagregando los efectos económicos de la complejidad regulatoria','https://nadaesgratis.es/admin/desagregando-los-efectos-economicos-de-la-complejidad-regulatoria-ha-llegado-espana-a-un-punto-de-inflexion'],
+  ['Apr 2023','El Confidencial','Más paro y menos inversión: así daña la economía la hiperactividad legislativa','https://www.elconfidencial.com/juridico/2023-04-25/paro-inversion-danos-economia-hiperactividad-legislativa_3616979/'],
+  ['Apr 2023','Cinco Días, El País','España se encamina al medio millón de leyes en democracia','https://cincodias.elpais.com/economia/2023-04-20/espana-se-encamina-al-medio-millon-de-leyes-en-democracia-los-danos-de-la-profusion-normativa.html'],
+  ['Apr 2023','El Confidencial','¿Por qué los canarios van a juicio más que los riojanos?','https://www.elconfidencial.com/juridico/2023-04-09/por-que-los-canarios-van-a-juicio-mas-que-los-de-la-rioja_3607322/'],
+  ['Jan 2023','Haaretz','This is how Israel’s economy could succumb to populism','https://www.haaretz.com/israel-news/2023-01-05/this-is-how-israels-economy-could-succumb-to-populism/00000185-81c0-d9f4-abf7-81ebd0ab0000'],
+  ['Jul 2022','Cato Unbound','Monarchy: Cause or Consequence of Prosperity?',''],
+  ['May 2021','La Razón','Pere Aragonès y el apoyo franquista','https://www.larazon.es/opinion/20210525/26jotkqthjcjlldjtuj2zvjhqq.html'],
+  ['May 2021','El Confidencial','¿Por qué el plan económico de Franco benefició a Barcelona y Bilbao frente a Huelva?','https://www.elconfidencial.com/economia/2021-05-19/plan-economico-franco-beneficio-barcelona-bilbao-huelva_3087368/'],
+  ['Mar 2019','Nada es Gratis','Justicia y economía: ¿depende la especialización productiva provincial de la congestión judicial?',''],
+  ['Oct 2018','El Cato','El ascenso y caída de Argentina','https://www.elcato.org/el-ascenso-y-caida-de-argentina'],
+  ['Oct 2018','The Bridge, Mercatus Center','Why Argentina Declined, and How It Can Rise Again','https://www.mercatus.org/bridge/commentary/qa-why-argentina-declined-and-how-it-can-rise-again']
+];
+
+const KEY_TALKS = [
+  ['Feb 2026','European Commission, 10th Regional Policy Evaluation, Brussels','Counterfactual Credibility in Cohesion Policy: From Identification to Decision-Relevant Evidence'],
+  ['Aug 2025','Econometric Society World Congress, Seoul','Assaults on Judicial Independence under the Pretence of Modernization: Evidence from Venezuela'],
+  ['Jul 2022','Econometric Society Australasia Meeting, Queensland','Constitutional Monarchy and Long-Run Growth: Friends or Foes?'],
+  ['Jun 2022','Econometric Society North American Summer Meeting, Miami','Long-Run Effects of Radical Institutional Overhauls: Evidence from the Mexican-American War'],
+  ['Aug 2020','Econometric Society World Congress, Milan','Bono Malum Superate: Long-Run Effects of Radical Institutional Change'],
+  ['Jan 2020','American Economic Association, San Diego','American Exceptionalism and the Benefits of Statehood'],
+  ['Jun 2018','Econometric Society North American Summer Meeting, UC Davis','Persistent Effects of Colonial Courts on Human Capital Formation and Long-Run Development'],
+  ['May 2017','American Law and Economics Association, Yale Law School','What 65 Million Regressions Say About Transaction Costs and Firm-Level Innovation'],
+  ['Jan 2017','American Economic Association, Chicago','Electoral Law Enforcement, Political Institutions and Long-Run Development in Latin America'],
+  ['Jun 2015','ISNIE Annual Conference, Harvard Law School','Institutional Transformation and the Origins of World Income Distribution']
+];
+
+const SEMINARS = [
+  ['European Commission','02/26'],['University of Hamburg','01/26'],['University of Bologna','11/25'],['Tel Aviv University','06/25'],
+  ['University of Warsaw','03/25 · 01/23 · 04/21'],['University of Catania','03/25'],['WU Vienna','12/24'],['Leibniz University','09/23'],
+  ['Bank of Spain','06/22 · 11/20 · 06/20 · 06/17'],['University of Bielefeld','12/20'],['University of Western Australia','02/20'],
+  ['University of Southern Denmark','05/19'],['Université Paris Nanterre','11/18'],['University of Magdeburg','11/18'],
+  ['IOS Regensburg','06/17'],['University of Groningen','09/17 · 10/14']
+];
+
+const APPOINTMENTS = [
+  ['2023–','Associate Professor, School of Economics and Business, University of Ljubljana'],
+  ['2023','Visiting Research Professor, Bucerius Law School, Hamburg'],
+  ['2023–','Adjunct Research Fellow, University of Western Australia'],
+  ['2020','Visiting Researcher, University of Western Australia, Perth'],
+  ['2019','Visiting Assistant Professor, EconomiX, CNRS – Université Paris Nanterre'],
+  ['2018–23','Assistant Professor, Faculty of Economics, University of Ljubljana'],
+  ['2016–18','Post-Doctoral Research Fellow, University of Ljubljana'],
+  ['2012–13','Research Assistant, Global Economic History, Utrecht University']
+];
+
+const AWARDS = [
+  ['2026','Bergson Prize for the Best Paper, Association for Comparative Economic Studies'],
+  ['2026','Top 5% of RePEc-registered economists worldwide, ten-year research output'],
+  ['2025','European Commission DG REGIO research grant: counterfactual evaluation of Cohesion Policy 2014–2020'],
+  ['2024','Most Impactful Article of the Year, Journal of Government and Economics'],
+  ['2023','Best Reviewer of the Year, Journal of Institutional Economics'],
+  ['2022','Research Fellowship, University of Western Australia Business School'],
+  ['2020','Paper selected among the most influential in institutions and development, International Library of Critical Writings in Economics (Edward Elgar)'],
+  ['2019','Young Scholarly Excellence Prize, University of Ljubljana'],
+  ['2018','Best Scientific Article Award, Faculty of Economics, University of Ljubljana'],
+  ['2016','Mercatus Center research grant, George Mason University'],
+  ['2015','Young Scholar Prize, International Law and Economics Conference, Ankara']
+];
+
+const PROFILES = [
+  ['Google Scholar','Citations','https://scholar.google.com/citations?user=Ym9COZoAAAAJ&hl=en'],
+  ['ORCID','0000-0002-7269-2339','https://orcid.org/0000-0002-7269-2339'],
+  ['SSRN','Author page','https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=2146732'],
+  ['IDEAS / RePEc','psp123','https://ideas.repec.org/e/psp123.html'],
+  ['Harvard Dataverse','Replication files','https://dataverse.harvard.edu/dataverse.xhtml?alias=rspruk'],
+  ['ResearchGate','Profile','https://www.researchgate.net/profile/Rok_Spruk'],
+  ['Substack','A Diary of Non-Random Observations','https://rokspruk.substack.com'],
+  ['X','@rokspruk','https://twitter.com/rokspruk']
+];
+
+const BIOS = {
+  short: 'Rok Spruk is Associate Professor of Economics at the University of Ljubljana. He studies how institutions, conflict and political shocks shape long-run development, using counterfactual methods.',
+  medium: 'Rok Spruk is Associate Professor of Economics at the School of Economics and Business, University of Ljubljana, and Adjunct Research Fellow at the University of Western Australia. His research builds counterfactual histories of revolutions, wars, constitutional change and judicial reform to measure their long-run economic consequences. He advises the European Commission on regional policy evaluation, has published 49 peer-reviewed articles, serves as Associate Editor of the International Review of Law and Economics and Acta Oeconomica, and received the 2026 Bergson Prize of the Association for Comparative Economic Studies.',
+  long: 'Rok Spruk is Associate Professor of Economics at the School of Economics and Business, University of Ljubljana, and Adjunct Research Fellow at the University of Western Australia. He holds a PhD in quantitative economic history from Utrecht University, written under Jan Luiten van Zanden. His research estimates the long-run economic and institutional consequences of revolutions, civil wars, constitutional ruptures, judicial reform and regulation, with studies of Iran, Syria, Yemen, Venezuela, Argentina, Türkiye, Spain and the former Yugoslavia. His 49 peer-reviewed articles appear in journals including the Journal of Comparative Economics, Journal of Economic Behavior and Organization, Health Economics, Socio-Economic Review and the Review of International Organizations. He has held visiting positions at Bucerius Law School and Université Paris Nanterre, advises the European Commission on regional policy evaluation, including the synthetic control study for its ex post evaluation of 2014–2020 Cohesion Policy, and has presented at the Econometric Society World Congress and the American Economic Association. He is Associate Editor of the International Review of Law and Economics and Acta Oeconomica, and received the 2026 Bergson Prize of the Association for Comparative Economic Studies.'
+};
+
+/* ================= HELPERS ================= */
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const toast = $('#toast'); let tId;
+function showToast(m) { toast.textContent = m; toast.hidden = false; clearTimeout(tId); tId = setTimeout(() => toast.hidden = true, 1700); }
+function copyText(text, msg) {
+  const fallback = () => {
+    const ta = document.createElement('textarea'); ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    let ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+    ta.remove(); showToast(ok ? msg : 'Copy blocked here. Select the text instead.');
+  };
+  try { navigator.clipboard.writeText(text).then(() => showToast(msg), fallback); } catch (e) { fallback(); }
+}
+function bibtex(p) {
+  const last = 'Spruk'; const key = (last + (p.year || '') + (p.title.split(/\s+/)[0] || '')).toLowerCase().replace(/[^a-z0-9]/g,'');
+  const authors = ['Spruk, Rok'].concat(p.co ? p.co.split(/,\s*/).map(a => a.trim()) : []).join(' and ');
+  const field = p.type === 'article' ? `journal={${p.venue}}, note={${p.detail}}` : `note={${p.venue}}`;
+  return `@article{${key}, author={${authors}}, title={${p.title}}, ${field}, year={${p.year || ''}}}`;
+}
+
+/* ================= HOME RENDER ================= */
+function themeCounts() {
+  const c = {}; [...ARTICLES, ...WORKING, ...REVIEW].forEach(p => c[p.theme] = (c[p.theme] || 0) + 1); return c;
+}
+(function renderThemes() {
+  const c = themeCounts();
+  $('#themeGrid').innerHTML = Object.entries(THEMES).map(([k, t]) => `
+    <a href="#research" data-theme-link="${k}" class="tile border-r border-b border-rule p-7 flex flex-col gap-3 min-w-0">
+      <span class="flex items-baseline justify-between gap-4"><span class="eyebrow !text-[11px] text-oxblood">${esc(t.name)}</span><span class="num text-[12px] text-slate">${c[k] || 0} papers</span></span>
+      <span class="text-[15px] leading-6 text-charcoal/85">${esc(t.blurb)}</span>
+      <span class="mt-auto pt-2 text-[13px] text-slate">Open <span class="arrow">→</span></span>
+    </a>`).join('') + `
+    <a href="#research" class="tile border-r border-b border-rule p-7 flex flex-col justify-between gap-3 min-w-0 bg-navy hover:!bg-midnight text-ivory">
+      <span class="eyebrow !text-[11px] text-brass">Complete record</span>
+      <span class="font-serif text-[26px] leading-tight">49 articles, 14 papers in the pipeline</span>
+      <span class="text-[13px] text-mist">Browse all <span class="arrow">→</span></span>
+    </a>`;
+  document.querySelectorAll('[data-theme-link]').forEach(a => a.addEventListener('click', () => { state.theme = a.dataset.themeLink; state.type = 'all'; }));
+})();
+(function renderFindings() {
+  $('#findingsGrid').innerHTML = FINDING_ORDER.map(n => {
+    const f = FINDINGS[n], p = ARTICLES.find(a => a.n === n);
+    return `<a class="group bg-navy hover:bg-midnight transition-colors p-7 sm:p-8 flex flex-col gap-4 min-w-0" href="${p.url || '#research'}" ${p.url ? 'target="_blank" rel="noopener"' : ''}>
+      <span class="font-serif font-light text-[54px] leading-none text-ivory num">${esc(f.big)}</span>
+      <span class="eyebrow !text-[11px] text-brass">${esc(f.label)}</span>
+      <span class="text-[15px] leading-[1.7] text-ivory/80">${esc(f.text)}</span>
+      <span class="mt-auto pt-3 border-t border-white/10 text-[13px] text-mist"><span class="italic font-serif text-[15px]">${esc(p.venue)}</span>, ${p.year} <span class="inline-block transition-transform group-hover:translate-x-1">→</span></span>
+    </a>`;
+  }).join('');
+})();
+(function renderSelected() {
+  $('#selectedList').innerHTML = SELECTED.map(n => ARTICLES.find(a => a.n === n)).map(p => `
+    <li class="pub border-b border-rule">
+      <div class="grid grid-cols-12 gap-x-4 gap-y-2 py-6 px-1 sm:px-3 items-baseline">
+        <span class="col-span-12 sm:col-span-1 num text-[13px] text-slate">${p.year}</span>
+        <div class="col-span-12 sm:col-span-8 min-w-0">
+          ${p.url ? `<a class="t font-serif text-[22px] leading-[1.35] text-navy" href="${p.url}" target="_blank" rel="noopener">${esc(p.title)}</a>` : `<span class="t font-serif text-[22px] leading-[1.35] text-navy">${esc(p.title)}</span>`}
+          <p class="text-[14px] text-slate mt-1.5">${p.co ? 'with ' + esc(p.co) : 'Sole-authored'}</p>
+        </div>
+        <p class="col-span-12 sm:col-span-3 sm:text-right font-serif italic text-[16px] text-charcoal">${esc(p.venue)}</p>
+      </div>
+    </li>`).join('');
+})();
+
+/* ================= RESEARCH RENDER ================= */
+const state = { type: 'all', theme: 'all', q: '' };
+const TYPES = [
+  ['all','All'], ['article','Journal articles'], ['review','Under review'], ['working','Working papers'], ['book','Books & chapters'], ['wip','Work in progress']
+];
+function renderTabs() {
+  const counts = { all: ARTICLES.length + REVIEW.length + WORKING.length + BOOKS.length, article: ARTICLES.length, review: REVIEW.length, working: WORKING.length, book: BOOKS.length, wip: WIP.length };
+  $('#typeTabs').innerHTML = TYPES.map(([k, l]) => `<button role="tab" class="tab pb-2.5 whitespace-nowrap" aria-selected="${state.type === k}" data-type="${k}">${l} <span class="num text-[11px] text-slate">${counts[k]}</span></button>`).join('');
+  $('#themePills').innerHTML = [['all','All themes'], ...Object.entries(THEMES).map(([k, t]) => [k, t.name])]
+    .map(([k, l]) => `<button class="pill text-[12px] px-3 py-1.5" aria-pressed="${state.theme === k}" data-theme="${k}">${esc(l)}</button>`).join('');
+  $('#themePills').hidden = state.type === 'wip';
+}
+function row(p) {
+  const typeLabel = { article: '', review: 'Under review', working: 'Working paper', book: '' }[p.type];
+  const numCol = p.type === 'article' ? `[${p.n}]` : (p.year || '');
+  return `<li class="pub border-b border-rule">
+    <div class="grid grid-cols-12 gap-x-4 gap-y-2 py-5 px-1 sm:px-3 items-baseline">
+      <span class="col-span-12 sm:col-span-1 num text-[12px] text-slate">${numCol}</span>
+      <div class="col-span-12 sm:col-span-8 min-w-0">
+        ${p.url ? `<a class="t font-serif text-[19px] sm:text-[20px] leading-[1.38] text-navy" href="${p.url}" target="_blank" rel="noopener">${esc(p.title)}</a>` : `<span class="t font-serif text-[19px] sm:text-[20px] leading-[1.38] text-navy">${esc(p.title)}</span>`}
+        <p class="text-[14px] text-slate mt-1.5 leading-6">${p.co ? 'with ' + esc(p.co) + ' · ' : ''}<span class="${p.type === 'article' ? 'italic font-serif text-[15px] text-charcoal' : ''}">${esc(p.venue)}</span>${p.detail ? ' <span class="num text-[12px]">' + esc(p.detail) + '</span>' : ''}</p>
+        ${p.type === 'article' && FINDINGS[p.n] ? `<p class="mt-2.5 pl-3 border-l-2 border-oxblood text-[14px] leading-6 text-charcoal/85"><span class="eyebrow !text-[10px] text-oxblood mr-1">Key finding</span> ${esc(FINDINGS[p.n].text)}</p>` : ''}
+      </div>
+      <div class="col-span-12 sm:col-span-3 flex sm:justify-end items-center gap-4 text-[13px]">
+        <span class="text-[11px] eyebrow !tracking-[.08em] text-slate/80 hidden md:inline">${esc(THEMES[p.theme].name)}</span>
+        ${p.url ? `<a class="act" href="${p.url}" target="_blank" rel="noopener">${p.type === 'article' ? 'Paper' : 'Read'} <span class="arr">↗</span></a>` : ''}
+        <button class="act cite" data-cite="${esc(JSON.stringify({t:p.title}))}">Cite</button>
+      </div>
+    </div>
+  </li>`;
+}
+function renderPubs() {
+  renderTabs();
+  const q = state.q.trim().toLowerCase();
+  const match = p => (state.theme === 'all' || p.theme === state.theme) && (!q || [p.title, p.co, p.venue].join(' ').toLowerCase().includes(q));
+  let html = '', total = 0;
+  const section = (label, items, groupYears) => {
+    const list = items.filter(match); if (!list.length) return; total += list.length;
+    html += `<h2 class="font-serif text-[28px] text-navy mt-12 mb-1 flex items-baseline gap-3">${label}<span class="num text-[12px] text-slate">${list.length}</span></h2>`;
+    if (groupYears) {
+      const years = [...new Set(list.map(p => p.year))];
+      years.forEach(y => {
+        html += `<p class="eyebrow !text-[11px] text-oxblood mt-8 mb-2 num">${y}</p><ul class="border-t border-navy/70">${list.filter(p => p.year === y).map(row).join('')}</ul>`;
+      });
+    } else html += `<ul class="border-t border-navy/70 mt-4">${list.map(row).join('')}</ul>`;
+  };
+  if (state.type === 'wip') {
+    const list = WIP.filter(w => !q || w.join(' ').toLowerCase().includes(q)); total = list.length;
+    html = `<p class="text-[15px] text-slate mt-6 measure">Current projects, listed by title. Drafts are available on request.</p><ul class="border-t border-navy/70 mt-6">` +
+      list.map(w => `<li class="border-b border-rule py-4 px-1 sm:px-3 grid grid-cols-12 gap-4"><span class="col-span-12 sm:col-span-8 font-serif text-[18px] leading-[1.4] text-navy">${esc(w[0])}</span><span class="col-span-12 sm:col-span-4 sm:text-right text-[14px] text-slate">with ${esc(w[1])}</span></li>`).join('') + '</ul>';
+  } else {
+    if (state.type === 'all' || state.type === 'working') section('Working papers', WORKING, false);
+    if (state.type === 'all' || state.type === 'review') section('Under review', REVIEW, false);
+    if (state.type === 'all' || state.type === 'article') section('Peer-reviewed journal articles', ARTICLES, true);
+    if (state.type === 'all' || state.type === 'book') section('Books and chapters', BOOKS, false);
+  }
+  $('#pubList').innerHTML = html;
+  $('#emptyState').hidden = total > 0;
+  $('#resultCount').textContent = `${total} ${total === 1 ? 'item' : 'items'}` + (state.theme !== 'all' && state.type !== 'wip' ? ` · ${THEMES[state.theme].name}` : '') + (q ? ` · “${state.q}”` : '');
+}
+$('#typeTabs').addEventListener('click', e => { const b = e.target.closest('[data-type]'); if (!b) return; state.type = b.dataset.type; renderPubs(); });
+$('#themePills').addEventListener('click', e => {
+  const b = e.target.closest('[data-theme]'); if (!b) return;
+  const next = b.dataset.theme;
+  const list = $('#pubList'); list.style.transition = 'opacity 150ms ease-out'; list.style.opacity = '.25';
+  setTimeout(() => { state.theme = next; renderPubs(); list.style.opacity = '1'; }, 150);
+});
+$('#q').addEventListener('input', e => { state.q = e.target.value; renderPubs(); });
+$('#pubList').addEventListener('click', e => {
+  const b = e.target.closest('.cite'); if (!b) return;
+  const t = JSON.parse(b.dataset.cite).t;
+  const p = [...ARTICLES, ...REVIEW, ...WORKING, ...BOOKS].find(x => x.title === t);
+  copyText(bibtex(p), 'BibTeX copied'); b.textContent = 'Copied'; setTimeout(() => b.textContent = 'Cite', 1600);
+});
+
+/* ================= OTHER VIEWS ================= */
+$('#pressRows').innerHTML = PRESS.map(([d, o, t, u]) => `
+  <tr class="border-b border-rule align-top">
+    <td class="py-4 pr-4 num text-[13px] text-slate whitespace-nowrap">${d}</td>
+    <td class="py-4 pr-4 text-[14px] text-charcoal">${esc(o)}</td>
+    <td class="py-4 font-serif text-[18px] leading-[1.4] text-navy">${u ? `<a class="link !no-underline hover:!underline" href="${u}" target="_blank" rel="noopener">${esc(t)}</a>` : esc(t)}</td>
+  </tr>`).join('');
+$('#keyTalks').innerHTML = KEY_TALKS.map(([d, v, t]) => `
+  <li class="grid grid-cols-[92px_1fr] gap-4 py-5 border-b border-rule"><span class="num text-[13px] text-slate pt-1">${d}</span><span><span class="font-serif text-[19px] leading-[1.35] text-navy block">${esc(t)}</span><span class="text-[14px] text-slate block mt-1">${esc(v)}</span></span></li>`).join('');
+$('#courseList').innerHTML = COURSES.map(([level, list]) => `
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 py-10 first:pt-0 border-b border-rule last:border-0">
+    <h2 class="lg:col-span-3 eyebrow text-oxblood pt-2">${esc(level)}</h2>
+    <ul class="lg:col-span-9 border-t border-navy/70 min-w-0">${list.map(([t, s, d]) => `
+      <li class="pub border-b border-rule px-1 sm:px-3 py-5 grid grid-cols-1 md:grid-cols-12 gap-x-6 gap-y-1.5">
+        <span class="md:col-span-7 font-serif text-[21px] leading-[1.35] text-navy"><span class="t">${esc(t)}</span></span>
+        <span class="md:col-span-5 md:text-right text-[13px] text-slate md:pt-1.5">${esc(s)}</span>
+        ${d ? `<p class="md:col-span-7 text-[15px] leading-6 text-charcoal/80">${esc(d)}</p>` : ''}
+      </li>`).join('')}
+    </ul>
+  </div>`).join('');
+$('#seminars').innerHTML = SEMINARS.map(([i, d]) => `<li class="flex justify-between gap-4 py-3 border-b border-rule"><span>${esc(i)}</span><span class="num text-[12px] text-slate text-right">${d}</span></li>`).join('');
+$('#appointments').innerHTML = APPOINTMENTS.map(([d, t]) => `<li class="grid grid-cols-[80px_1fr] gap-4 py-4 border-b border-rule"><span class="num text-[13px] text-slate">${d}</span><span class="text-[15px] leading-6">${esc(t)}</span></li>`).join('');
+$('#awards').innerHTML = AWARDS.map(([d, t]) => `<li class="grid grid-cols-[56px_1fr] gap-4 py-4 border-b border-rule"><span class="num text-[13px] text-slate">${d}</span><span class="text-[15px] leading-6">${esc(t)}</span></li>`).join('');
+$('#profiles').innerHTML = PROFILES.map(([n, s, u]) => `
+  <a class="tile border-r border-b border-rule p-6 flex flex-col gap-2 min-w-0" href="${u}" target="_blank" rel="noopener">
+    <span class="font-serif text-[21px] text-navy">${esc(n)} <span class="arrow text-slate text-[15px]">↗</span></span>
+    <span class="text-[13px] text-slate break-words">${esc(s)}</span>
+  </a>`).join('');
+
+$('#collabs').textContent = COLLABORATORS.join(' · ');
+
+let bioKey = 'short';
+function renderBio() { $('#bioText').textContent = BIOS[bioKey]; document.querySelectorAll('#bioTabs [data-bio]').forEach(b => b.setAttribute('aria-selected', String(b.dataset.bio === bioKey))); }
+$('#bioTabs').addEventListener('click', e => { const b = e.target.closest('[data-bio]'); if (!b) return; bioKey = b.dataset.bio; renderBio(); });
+$('#copyBio').addEventListener('click', () => copyText(BIOS[bioKey], 'Bio copied'));
+$('#copyEmail').addEventListener('click', () => copyText('rok.spruk@ef.uni-lj.si', 'Email copied'));
+renderBio();
+
+/* ================= SIGNATURE CHART (illustrative) ================= */
+(function chart() {
+  const W = 760, H = 330, L = 48, Rt = 744, T = 16, B = 290;
+  const ts = []; for (let t = -20; t <= 20; t++) ts.push(t);
+  const synth = ts.map(t => 100 * Math.exp(0.022 * t) + 1.2 * Math.sin(t * 0.9));
+  const treat = ts.map((t, i) => t <= 0 ? synth[i] + 1.1 * Math.sin(t * 1.7 + 1) : synth[i] * (1 - 0.21 * (1 - Math.exp(-t / 7))) + 0.9 * Math.sin(t * 1.3));
+  const all = synth.concat(treat); const lo = Math.floor(Math.min(...all) / 10) * 10, hi = Math.ceil(Math.max(...all) / 10) * 10;
+  const x = t => L + (t + 20) / 40 * (Rt - L), y = v => B - (v - lo) / (hi - lo) * (B - T);
+  const path = arr => arr.map((v, i) => (i ? 'L' : 'M') + x(ts[i]).toFixed(1) + ' ' + y(v).toFixed(1)).join(' ');
+  $('#synthPath').setAttribute('d', path(synth));
+  $('#treatPath').setAttribute('d', path(treat));
+  const post = ts.map((t, i) => i).filter(i => ts[i] >= 0);
+  $('#gapBand').setAttribute('d', post.map((i, k) => (k ? 'L' : 'M') + x(ts[i]) + ' ' + y(synth[i])).join(' ') + ' ' + post.slice().reverse().map(i => 'L' + x(ts[i]) + ' ' + y(treat[i])).join(' ') + ' Z');
+  let g = '';
+  for (let v = lo; v <= hi; v += 20) g += `<line x1="${L}" x2="${Rt}" y1="${y(v)}" y2="${y(v)}" stroke="#D9D3C7" stroke-width="1"/><text x="${L - 8}" y="${y(v) + 4}" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="#5B6675">${v}</text>`;
+  [-20, -10, 0, 10, 20].forEach(t => g += `<text x="${x(t)}" y="${B + 22}" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#5B6675">${t === 0 ? 'event' : (t > 0 ? '+' + t : t)}</text>`);
+  g += `<line x1="${L}" x2="${Rt}" y1="${B}" y2="${B}" stroke="#23272E" stroke-width="1"/>`;
+  $('#grid').innerHTML = g;
+  $('#eventMark').innerHTML = `<line x1="${x(0)}" x2="${x(0)}" y1="${T}" y2="${B}" stroke="#8C2F2B" stroke-width="1" stroke-dasharray="3 4"/>
+    <text class="fade-late" x="${x(20) - 6}" y="${(y(synth[40]) + y(treat[40])) / 2 + 4}" text-anchor="end" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="15" fill="#8C2F2B">gap ≈ −${Math.round((1 - treat[40] / synth[40]) * 100)}%</text>`;
+  const svg = $('#scm'), hov = $('#hover'), tip = $('#tip');
+  function move(ev) {
+    const r = svg.getBoundingClientRect(); const px = (ev.clientX - r.left) / r.width * W;
+    const t = Math.max(-20, Math.min(20, Math.round((px - L) / (Rt - L) * 40 - 20))); const i = t + 20;
+    $('#hx').setAttribute('x1', x(t)); $('#hx').setAttribute('x2', x(t));
+    $('#hc1').setAttribute('cx', x(t)); $('#hc1').setAttribute('cy', y(treat[i]));
+    $('#hc2').setAttribute('cx', x(t)); $('#hc2').setAttribute('cy', y(synth[i]));
+    hov.setAttribute('opacity', '1');
+    const gap = (treat[i] / synth[i] - 1) * 100;
+    tip.innerHTML = `${t === 0 ? 'Event year' : (t > 0 ? 'Year +' + t : 'Year ' + t)}<br>Treated ${treat[i].toFixed(1)} · Synthetic ${synth[i].toFixed(1)}<br><span style="color:#B08D57">Gap ${gap >= 0 ? '+' : ''}${gap.toFixed(1)}%</span>`;
+    tip.style.opacity = '1';
+    const left = x(t) / W * r.width; tip.style.left = Math.min(Math.max(0, left - 90), r.width - 190) + 'px'; tip.style.top = '4px';
+  }
+  svg.addEventListener('pointermove', move); svg.addEventListener('pointerdown', move);
+  svg.addEventListener('pointerleave', () => { hov.setAttribute('opacity', '0'); tip.style.opacity = '0'; });
+})();
+
+/* ================= ROUTER ================= */
+const VIEWS = ['home','research','policy','speaking','teaching','about','contact'];
+function route() {
+  const v = VIEWS.includes(location.hash.slice(1)) ? location.hash.slice(1) : 'home';
+  document.querySelectorAll('[data-view]').forEach(el => el.hidden = el.dataset.view !== v);
+  document.querySelectorAll('[data-nav]').forEach(a => a.dataset.nav === v ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current'));
+  if (v === 'research') renderPubs();
+  window.scrollTo({ top: 0 });
+  $('#mobileNav').hidden = true; $('#menuBtn').setAttribute('aria-expanded', 'false');
+  document.title = v === 'home' ? 'Rok Spruk Homepage' : 'Rok Spruk · ' + { research: 'Research', policy: 'Policy & Media', speaking: 'Speaking', teaching: 'Teaching', about: 'About', contact: 'Contact' }[v];
+}
+window.addEventListener('hashchange', route);
+route();
+
+const header = document.querySelector('.site-header');
+const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 24);
+window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+$('#menuBtn').addEventListener('click', () => { const m = $('#mobileNav'); m.hidden = !m.hidden; $('#menuBtn').setAttribute('aria-expanded', String(!m.hidden)); });
+</script>
