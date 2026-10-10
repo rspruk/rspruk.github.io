@@ -1,3 +1,9 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0E1B2C">
 <title>Rok Spruk Homepage</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,6 +56,8 @@
     --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
     color-scheme: light;
   }
+  [hidden] { display: none !important; }
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   body { background: var(--ivory); color: var(--charcoal); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
   h1, h2, h3 { text-wrap: balance; }
   .eyebrow { font: 500 12px/16px var(--sans); letter-spacing: .16em; text-transform: uppercase; }
@@ -122,6 +130,8 @@
   @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
 </style>
 
+</head>
+<body>
 <!-- ================= HEADER ================= -->
 <header class="site-header sticky z-40 bg-ivory/95 backdrop-blur-sm">
   <div class="mx-auto max-w-page px-4 sm:px-8 h-[72px] flex items-center justify-between gap-6">
@@ -138,10 +148,10 @@
       <a class="nav-link" href="#about" data-nav="about">About</a>
       <a class="nav-link" href="#contact" data-nav="contact">Contact</a>
     </nav>
-    <button id="menuBtn" class="lg:hidden text-[14px] text-navy border border-rule px-3 py-1.5" aria-expanded="false" aria-controls="mobileNav">Menu</button>
+    <button id="menuBtn" class="lg:hidden text-[14px] text-navy border border-rule px-4 py-2.5" aria-expanded="false" aria-controls="mobileNav">Menu</button>
   </div>
-  <nav id="mobileNav" class="lg:hidden border-t border-rule px-4 py-4 text-[16px] flex flex-col gap-3 bg-ivory" hidden>
-    <a href="#home">Home</a><a href="#research">Research</a><a href="#code">Code &amp; Data</a><a href="#policy">Policy &amp; Media</a><a href="#speaking">Speaking</a><a href="#teaching">Teaching</a><a href="#about">About</a><a href="#contact">Contact</a>
+  <nav id="mobileNav" aria-label="Mobile" class="lg:hidden border-t border-rule px-4 sm:px-8 py-2 text-[17px] flex flex-col bg-ivory shadow-[0_12px_24px_-16px_rgba(14,27,44,.35)]" hidden>
+    <a class="py-3 border-b border-rule last:border-0" href="#home">Home</a><a class="py-3 border-b border-rule last:border-0" href="#research">Research</a><a class="py-3 border-b border-rule last:border-0" href="#code">Code &amp; Data</a><a class="py-3 border-b border-rule last:border-0" href="#policy">Policy &amp; Media</a><a class="py-3 border-b border-rule last:border-0" href="#speaking">Speaking</a><a class="py-3 border-b border-rule last:border-0" href="#teaching">Teaching</a><a class="py-3 border-b border-rule last:border-0" href="#about">About</a><a class="py-3 border-b border-rule last:border-0" href="#contact">Contact</a>
   </nav>
 </header>
 
@@ -183,10 +193,10 @@
   <!-- CREDENTIALS -->
   <section class="on-navy bg-midnight text-ivory" aria-label="Distinctions">
     <dl class="mx-auto max-w-page px-4 sm:px-8 py-9 grid grid-cols-2 lg:grid-cols-4 gap-y-8 gap-x-8">
-      <div class="lg:border-r border-white/10 lg:pr-6"><dt class="eyebrow text-mist !text-[11px]">Peer-reviewed</dt><dd class="mt-2"><span class="font-serif text-[40px] leading-none">49</span><span class="block text-[13px] text-ivory/75 mt-2">journal articles since 2013</span></dd></div>
-      <div class="lg:border-r border-white/10 lg:pr-6"><dt class="eyebrow text-mist !text-[11px]">Bergson Prize</dt><dd class="mt-2"><span class="font-serif text-[40px] leading-none num">2026</span><span class="block text-[13px] text-ivory/75 mt-2">Best paper, Association for Comparative Economic Studies</span></dd></div>
-      <div class="lg:border-r border-white/10 lg:pr-6"><dt class="eyebrow text-mist !text-[11px]">RePEc</dt><dd class="mt-2"><span class="font-serif text-[40px] leading-none">Top 5%</span><span class="block text-[13px] text-ivory/75 mt-2">of registered economists, ten-year output</span></dd></div>
-      <div><dt class="eyebrow text-mist !text-[11px]">Econometric Society</dt><dd class="mt-2"><span class="font-serif text-[40px] leading-none num">2020 · 2025</span><span class="block text-[13px] text-ivory/75 mt-2">World Congress, Milan and Seoul</span></dd></div>
+      <div class="lg:border-r border-white/10 lg:pr-6"><dt class="eyebrow text-mist !text-[11px]">Peer-reviewed</dt><dd class="mt-2"><span class="font-serif text-[30px] sm:text-[40px] leading-none">49</span><span class="block text-[13px] text-ivory/75 mt-2">journal articles since 2013</span></dd></div>
+      <div class="lg:border-r border-white/10 lg:pr-6"><dt class="eyebrow text-mist !text-[11px]">Bergson Prize</dt><dd class="mt-2"><span class="font-serif text-[30px] sm:text-[40px] leading-none num">2026</span><span class="block text-[13px] text-ivory/75 mt-2">Best paper, Association for Comparative Economic Studies</span></dd></div>
+      <div class="lg:border-r border-white/10 lg:pr-6"><dt class="eyebrow text-mist !text-[11px]">RePEc</dt><dd class="mt-2"><span class="font-serif text-[30px] sm:text-[40px] leading-none">Top 5%</span><span class="block text-[13px] text-ivory/75 mt-2">of registered economists, ten-year output</span></dd></div>
+      <div><dt class="eyebrow text-mist !text-[11px]">Econometric Society</dt><dd class="mt-2"><span class="font-serif text-[30px] sm:text-[40px] leading-none num">2020 · 2025</span><span class="block text-[13px] text-ivory/75 mt-2">World Congress, Milan and Seoul</span></dd></div>
     </dl>
   </section>
 
@@ -377,7 +387,7 @@
     <div class="mx-auto max-w-page px-4 sm:px-8">
       <div role="tablist" aria-label="Publication type" id="typeTabs" class="flex gap-6 overflow-x-auto text-[14px] pt-3"></div>
       <div class="flex flex-col md:flex-row md:items-center gap-3 py-3">
-        <div id="themePills" class="flex flex-wrap gap-2 flex-1 min-w-0"></div>
+        <div id="themePills" class="flex flex-nowrap md:flex-wrap gap-2 flex-1 min-w-0 overflow-x-auto md:overflow-visible pb-1 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0"></div>
         <label class="relative md:w-[260px] shrink-0">
           <span class="sr-only">Search publications</span>
           <input id="q" type="search" placeholder="Search title, coauthor, journal" class="w-full bg-transparent border border-rule focus:border-navy outline-none px-3 py-2 text-[14px] placeholder:text-slate/70">
@@ -1040,7 +1050,7 @@ function renderTabs() {
   const counts = { all: ARTICLES.length + REVIEW.length + WORKING.length + BOOKS.length, article: ARTICLES.length, review: REVIEW.length, working: WORKING.length, book: BOOKS.length, wip: WIP.length };
   $('#typeTabs').innerHTML = TYPES.map(([k, l]) => `<button role="tab" class="tab pb-2.5 whitespace-nowrap" aria-selected="${state.type === k}" data-type="${k}">${l} <span class="num text-[11px] text-slate">${counts[k]}</span></button>`).join('');
   $('#themePills').innerHTML = [['all','All themes'], ...Object.entries(THEMES).map(([k, t]) => [k, t.name])]
-    .map(([k, l]) => `<button class="pill text-[12px] px-3 py-1.5" aria-pressed="${state.theme === k}" data-theme="${k}">${esc(l)}</button>`).join('');
+    .map(([k, l]) => `<button class="pill shrink-0 whitespace-nowrap text-[12px] px-3 py-2" aria-pressed="${state.theme === k}" data-theme="${k}">${esc(l)}</button>`).join('');
   $('#themePills').hidden = state.type === 'wip';
 }
 function row(p) {
@@ -1216,5 +1226,8 @@ route();
 const header = document.querySelector('.site-header');
 const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 24);
 window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { $('#mobileNav').hidden = true; $('#menuBtn').setAttribute('aria-expanded','false'); } });
 $('#menuBtn').addEventListener('click', () => { const m = $('#mobileNav'); m.hidden = !m.hidden; $('#menuBtn').setAttribute('aria-expanded', String(!m.hidden)); });
 </script>
+</body>
+</html>
