@@ -249,6 +249,7 @@
         <div class="lg:col-span-7 min-w-0">
           <h2 class="font-serif text-[clamp(28px,3.4vw,40px)] leading-[1.15] text-navy">News</h2>
           <ol class="mt-8 border-t border-navy/70">
+            <li class="grid grid-cols-[88px_1fr] sm:grid-cols-[110px_1fr] gap-4 py-5 border-b border-rule"><span class="num text-[13px] text-oxblood pt-1">Oct 2026</span><p class="text-[16px] leading-7"><span class="font-medium text-navy">New methods paper.</span> <em>Honest Inference for Synthetic Controls with Imperfect Fit: Time-Split Validity and the Choice of Anchor</em>. Valid confidence intervals for synthetic control when the treated unit sits outside its donor pool and the pre-treatment period is short. <a class="link" href="https://arxiv.org/abs/2610.32383" target="_blank" rel="noopener">Read it on arXiv</a>.</p></li>
             <li class="grid grid-cols-[88px_1fr] sm:grid-cols-[110px_1fr] gap-4 py-5 border-b border-rule"><span class="num text-[13px] text-oxblood pt-1">Oct 2026</span><p class="text-[16px] leading-7"><span class="font-medium text-navy">New working paper.</span> <em>The Handshake Premium: How Markets Priced the Abraham Accords</em>, with Riste Ichev. A counterfactual evaluation of how stock markets in the United Arab Emirates, Bahrain and Morocco responded to normalisation with Israel. <a class="link" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7643253" target="_blank" rel="noopener">Read it on SSRN</a>.</p></li>
             <li class="grid grid-cols-[88px_1fr] sm:grid-cols-[110px_1fr] gap-4 py-5 border-b border-rule"><span class="num text-[13px] text-oxblood pt-1">Oct 2026</span><p class="text-[16px] leading-7"><span class="font-medium text-navy">New study published by the European Union.</span> <em>Counterfactual Impact Evaluation of Cohesion Policy</em>, a matrix completion evaluation of the 2014–2022 cycle for DG REGIO: Cohesion Policy worked as a regional stabiliser, above all for jobs. <a class="link" href="https://op.europa.eu/en/publication-detail/-/publication/84849927-a676-11f1-b25c-01aa75ed71a1/language-en" target="_blank" rel="noopener">Read it</a>.</p></li>
             <li class="grid grid-cols-[88px_1fr] sm:grid-cols-[110px_1fr] gap-4 py-5 border-b border-rule"><span class="num text-[13px] text-slate pt-1">2026</span><p class="text-[16px] leading-7"><span class="font-medium text-navy">Bergson Prize.</span> Best paper award from the Association for Comparative Economic Studies.</p></li>
@@ -404,7 +405,7 @@
           <a class="act" href="https://dataverse.harvard.edu/dataverse.xhtml?alias=rspruk" target="_blank" rel="noopener">Replication data <span class="arr">↗</span></a>
         </div>
       </div>
-      <p class="mt-6 text-[17px] leading-[1.75] text-charcoal/85 measure">49 peer-reviewed articles, 5 papers under review, 10 working papers, a monograph, 4 book chapters and two evaluation reports for the European Commission. Replication files are on Harvard Dataverse.</p>
+      <p class="mt-6 text-[17px] leading-[1.75] text-charcoal/85 measure">49 peer-reviewed articles, 5 papers under review, 11 working papers, a monograph, 4 book chapters and two evaluation reports for the European Commission. Replication files are on Harvard Dataverse.</p>
     </div>
   </section>
 
@@ -847,6 +848,7 @@ const REVIEW = [
 ].map(a => ({ type:'review', title:a[0], co:a[1], venue:a[2], theme:a[3], url:a[4], year: 2026 }));
 
 const WORKING = [
+  ['Honest Inference for Synthetic Controls with Imperfect Fit: Time-Split Validity and the Choice of Anchor','','arXiv 2610.32383','methods','2610.32383',2026],
   ['The Handshake Premium: How Markets Priced the Abraham Accords','R. Ichev','SSRN 7643253','conflict','',2026],
   ['Public Signals, Concealed Choices: Dynamic Measurement without Behavioral Identification','','arXiv 2608.21077','methods','2608.21077',2026],
   ['Reputation, Exposure and Exit: Organizational Turnover after #MeToo','R. Baharad, A. Eckstein, G. Parchomovsky','arXiv 2606.03491','law','2606.03491',2026],
@@ -1041,7 +1043,7 @@ function themeCounts() {
     </a>`).join('') + `
     <a href="#research" class="tile border-r border-b border-rule p-7 flex flex-col justify-between gap-3 min-w-0 bg-navy hover:!bg-midnight text-ivory">
       <span class="eyebrow !text-[11px] text-brass">Complete record</span>
-      <span class="font-serif text-[26px] leading-tight">49 articles, 15 papers in the pipeline</span>
+      <span class="font-serif text-[26px] leading-tight">49 articles, 16 papers in the pipeline</span>
       <span class="text-[13px] text-mist">Browse all <span class="arrow">→</span></span>
     </a>`;
   document.querySelectorAll('[data-theme-link]').forEach(a => a.addEventListener('click', () => { state.theme = a.dataset.themeLink; state.type = 'all'; }));
