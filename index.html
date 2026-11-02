@@ -212,6 +212,7 @@
           <div class="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-[14px]">
             <a href="#research" class="link text-slate">See the papers →</a>
             <a href="#code" class="link text-slate">Stata code for exposure-augmented SCM →</a>
+            <a href="#code" class="link text-slate">splitsc: honest inference for synthetic control →</a>
           </div>
         </div>
         <figure class="lg:col-span-8 min-w-0 border border-rule bg-[#FBF9F5] p-4 sm:p-6">
@@ -249,6 +250,7 @@
         <div class="lg:col-span-7 min-w-0">
           <h2 class="font-serif text-[clamp(28px,3.4vw,40px)] leading-[1.15] text-navy">News</h2>
           <ol class="mt-8 border-t border-navy/70">
+            <li class="grid grid-cols-[88px_1fr] sm:grid-cols-[110px_1fr] gap-4 py-5 border-b border-rule"><span class="num text-[13px] text-oxblood pt-1">Nov 2026</span><p class="text-[16px] leading-7"><span class="font-medium text-navy">New Stata package.</span> <span class="num">splitsc</span> implements time-split honest inference for synthetic control. Install it in one line from the <a class="link" href="#code">Code &amp; Data</a> page.</p></li>
             <li class="grid grid-cols-[88px_1fr] sm:grid-cols-[110px_1fr] gap-4 py-5 border-b border-rule"><span class="num text-[13px] text-oxblood pt-1">Oct 2026</span><p class="text-[16px] leading-7"><span class="font-medium text-navy">New methods paper.</span> <em>Honest Inference for Synthetic Controls with Imperfect Fit: Time-Split Validity and the Choice of Anchor</em>. Valid confidence intervals for synthetic control when the treated unit sits outside its donor pool and the pre-treatment period is short. <a class="link" href="https://arxiv.org/abs/2610.32383" target="_blank" rel="noopener">Read it on arXiv</a>.</p></li>
             <li class="grid grid-cols-[88px_1fr] sm:grid-cols-[110px_1fr] gap-4 py-5 border-b border-rule"><span class="num text-[13px] text-oxblood pt-1">Oct 2026</span><p class="text-[16px] leading-7"><span class="font-medium text-navy">New working paper.</span> <em>The Handshake Premium: How Markets Priced the Abraham Accords</em>, with Riste Ichev. A counterfactual evaluation of how stock markets in the United Arab Emirates, Bahrain and Morocco responded to normalisation with Israel. <a class="link" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7643253" target="_blank" rel="noopener">Read it on SSRN</a>.</p></li>
             <li class="grid grid-cols-[88px_1fr] sm:grid-cols-[110px_1fr] gap-4 py-5 border-b border-rule"><span class="num text-[13px] text-oxblood pt-1">Oct 2026</span><p class="text-[16px] leading-7"><span class="font-medium text-navy">New study published by the European Union.</span> <em>Counterfactual Impact Evaluation of Cohesion Policy</em>, a matrix completion evaluation of the 2014–2022 cycle for DG REGIO: Cohesion Policy worked as a regional stabiliser, above all for jobs. <a class="link" href="https://op.europa.eu/en/publication-detail/-/publication/84849927-a676-11f1-b25c-01aa75ed71a1/language-en" target="_blank" rel="noopener">Read it</a>.</p></li>
@@ -460,6 +462,33 @@
             <pre id="escBib" class="mt-3 bg-midnight border border-white/10 p-4 text-[12px] leading-5 text-ivory/90 num whitespace-pre-wrap break-words"></pre>
             <button id="copyEscBib" class="mt-3 text-[13px] text-brass hover:text-ivory">Copy BibTeX</button>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- splitsc -->
+  <section class="bg-ivory" id="splitsc">
+    <div class="mx-auto max-w-page px-4 sm:px-8 py-16 md:py-24">
+      <p class="opener eyebrow text-slate">Stata package</p>
+      <div class="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <div class="lg:col-span-7 min-w-0">
+          <p class="flex flex-wrap items-center gap-3"><span class="eyebrow !text-[10px] text-ivory bg-oxblood px-2.5 py-1">New · 2026</span><span class="eyebrow !text-[11px] text-slate">Honest inference for synthetic control · Stata</span></p>
+          <h2 class="font-serif font-light text-[clamp(40px,5vw,60px)] leading-[1] text-navy mt-5 num">splitsc</h2>
+          <p class="mt-6 text-[17px] leading-[1.75] text-charcoal/90 measure">Confidence intervals for synthetic control estimates that stay valid when the fit is imperfect: the treated unit sits outside its donor pool and the pre-treatment period is short. The weights are fitted on an early block of pre-treatment periods, and a later block is used to estimate bias and noise.</p>
+          <p class="mt-6 text-[14px] text-slate">Implements <a class="link" href="https://arxiv.org/abs/2610.32383" target="_blank" rel="noopener">Spruk (2026), Honest Inference for Synthetic Controls with Imperfect Fit: Time-Split Validity and the Choice of Anchor</a>.</p>
+        </div>
+        <div class="lg:col-span-5 min-w-0">
+          <p class="eyebrow !text-[11px] text-slate">Install from Stata</p>
+          <div class="mt-3 bg-navy text-ivory border border-navy p-4 flex items-start justify-between gap-4">
+            <code id="splitscCmd" class="num text-[13px] leading-6 break-all">net install splitsc, from("https://rspruk.github.io/splitsc/") replace</code>
+            <button id="copySplitsc" class="shrink-0 text-[12px] text-brass hover:text-ivory pt-0.5">Copy</button>
+          </div>
+          <p class="mt-3 text-[13px] text-slate">Then type <code class="num text-charcoal">help splitsc</code> for syntax and examples.</p>
+          <ul class="mt-8 border-t border-navy/70">
+            <li class="border-b border-rule"><a class="group flex items-center justify-between gap-6 py-5 px-2 -mx-2 hover:bg-parchment transition-colors" href="splitsc.zip" download><span class="min-w-0"><span class="font-serif text-[21px] text-navy block">Package files</span><span class="text-[13px] text-slate block mt-1">Command, help file and example do-file</span><span class="num text-[11px] text-slate/80 block mt-1">splitsc.zip</span></span><span class="shrink-0 border border-rule group-hover:border-oxblood group-hover:text-oxblood transition-colors text-[12px] px-3 py-1.5 num">ZIP ↓</span></a></li>
+            <li class="border-b border-rule"><a class="group flex items-center justify-between gap-6 py-5 px-2 -mx-2 hover:bg-parchment transition-colors" href="https://arxiv.org/abs/2610.32383" target="_blank" rel="noopener"><span class="min-w-0"><span class="font-serif text-[21px] text-navy block">Paper</span><span class="text-[13px] text-slate block mt-1">Method, theory and coverage results</span><span class="num text-[11px] text-slate/80 block mt-1">arXiv 2610.32383</span></span><span class="shrink-0 border border-rule group-hover:border-oxblood group-hover:text-oxblood transition-colors text-[12px] px-3 py-1.5 num">arXiv ↗</span></a></li>
+          </ul>
         </div>
       </div>
     </div>
@@ -1196,6 +1225,7 @@ function escRow(f, live) {
 $('#escFiles').innerHTML = ESC_FILES.map(f => escRow(f, true)).join('');
 $('#escBib').textContent = ESC_BIB;
 $('#copyEscBib').addEventListener('click', () => copyText(ESC_BIB, 'BibTeX copied'));
+$('#copySplitsc').addEventListener('click', () => copyText($('#splitscCmd').textContent, 'Install command copied'));
 
 let bioKey = 'short';
 function renderBio() { $('#bioText').textContent = BIOS[bioKey]; document.querySelectorAll('#bioTabs [data-bio]').forEach(b => b.setAttribute('aria-selected', String(b.dataset.bio === bioKey))); }
