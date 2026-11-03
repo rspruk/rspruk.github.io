@@ -436,66 +436,157 @@
 
 <!-- ======================================================= CODE & DATA ======================================================= -->
 <div data-view="code" hidden>
+  <style>
+    .console { background: #0B1624; border: 1px solid rgba(255,255,255,.10); box-shadow: 0 30px 60px -30px rgba(0,0,0,.55); }
+    .console-bar { background: #111F31; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .ctab { color: var(--mist); border-bottom: 2px solid transparent; transition: color 160ms, border-color 160ms; }
+    .ctab:hover { color: var(--ivory); }
+    .ctab[aria-selected="true"] { color: var(--ivory); border-color: var(--brass); }
+    .cline { display: grid; grid-template-columns: 18px 1fr auto; gap: 10px; align-items: start; padding: 7px 0; }
+    .cline .p { color: var(--brass); }
+    .cline .c { color: #E9E4D8; overflow-wrap: anywhere; }
+    .cline .c .s { color: #C9B489; }
+    .cline .k { color: #9FB3CF; }
+    .cline .cp { opacity: 0; transition: opacity 140ms; color: var(--mist); font-size: 11px; }
+    .cline:hover .cp, .cline .cp:focus-visible { opacity: 1; }
+    .cline .cp:hover { color: var(--brass); }
+    @media (hover: none) { .cline .cp { opacity: 1; } }
+    .ccomment { color: #6F7E93; }
+    .pkg { transition: border-color 200ms ease-out, box-shadow 200ms ease-out; }
+    .pkg:hover { border-color: var(--charcoal); box-shadow: 0 18px 40px -28px rgba(14,27,44,.45); }
+    .feat { display: grid; grid-template-columns: 28px 1fr; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--rule); }
+    .rowlink { transition: background-color 160ms ease-out; }
+    .rowlink:hover { background: var(--parchment); }
+    .rowlink:hover .tag { border-color: var(--oxblood); color: var(--oxblood); }
+    .split-seg { transition: opacity 200ms; }
+  </style>
+
+  <!-- Intro -->
   <section class="bg-ivory">
     <div class="mx-auto max-w-page px-4 sm:px-8 pt-16 md:pt-24 pb-14">
       <p class="eyebrow text-oxblood">Code &amp; Data</p>
       <h1 class="font-serif font-light text-[clamp(44px,6vw,72px)] leading-[1.02] tracking-[-0.02em] text-navy mt-5">Software and replication</h1>
-      <p class="mt-6 text-[17px] leading-[1.75] text-charcoal/85 measure">Estimators, replication packages and data behind the papers, released so that every result on this site can be checked and reused.</p>
+      <p class="mt-6 text-[17px] leading-[1.75] text-charcoal/85 measure">Open Stata packages for the synthetic control methods developed in my papers, and the data and code behind every published result. Each package installs in one line and ships with the applications from its paper.</p>
+      <div class="mt-8 flex flex-wrap gap-2 text-[13px]">
+        <a href="#pkg-splitsc" class="jump pill px-3.5 py-2"><span class="num">splitsc</span> · honest inference</a>
+        <a href="#pkg-easc" class="jump pill px-3.5 py-2"><span class="num">easc</span> · common shocks</a>
+        <a href="#replication" class="jump pill px-3.5 py-2">Replication archive</a>
+      </div>
     </div>
   </section>
 
-  <!-- Featured software -->
+  <!-- Install console -->
   <section class="on-navy bg-navy text-ivory">
-    <div class="mx-auto max-w-page px-4 sm:px-8 py-16 md:py-24">
-      <p class="opener eyebrow text-brass">Featured software</p>
-      <div class="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-12">
-        <div class="lg:col-span-7 min-w-0">
-          <p class="eyebrow !text-[11px] text-mist">Exposure-augmented synthetic control · Stata</p>
-          <h2 class="font-serif font-light text-[clamp(30px,3.8vw,46px)] leading-[1.1] mt-4">Synthetic Control under Out-of-Span Common Shocks: Diagnosis, Exposure Balance and Correction</h2>
-          <p class="mt-6 text-[17px] leading-[1.75] text-ivory/85 measure">Standard synthetic control assumes the treated unit's untreated path can be rebuilt from its donor pool. When a common shock hits the treated unit with an exposure no donor combination can reproduce, that assumption fails. This paper shows how to diagnose the problem, balance donors on exposure, and correct the estimate. The application is Iran's confrontation with the West.</p>
-          <p class="mt-6 text-[14px] text-mist">Rok Spruk · working paper, 2026 · application in <a class="link" href="https://arxiv.org/abs/2610.05535" target="_blank" rel="noopener">arXiv 2610.05535</a></p>
-        </div>
-        <div class="lg:col-span-5 min-w-0">
-          <ul id="escFiles" class="border-t border-white/20"></ul>
-          <div class="mt-8">
-            <p class="eyebrow !text-[11px] text-mist">Cite the paper</p>
-            <pre id="escBib" class="mt-3 bg-midnight border border-white/10 p-4 text-[12px] leading-5 text-ivory/90 num whitespace-pre-wrap break-words"></pre>
-            <button id="copyEscBib" class="mt-3 text-[13px] text-brass hover:text-ivory">Copy BibTeX</button>
+    <div class="mx-auto max-w-page px-4 sm:px-8 py-16 md:py-24 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-5 min-w-0">
+        <p class="opener eyebrow text-brass">Install from Stata</p>
+        <h2 class="font-serif font-light text-[clamp(32px,4vw,48px)] leading-[1.08] mt-8">One line, straight into Stata</h2>
+        <p class="mt-6 text-[17px] leading-[1.75] text-ivory/80">Both packages install from this site with Stata's own <span class="num text-[15px] text-ivory">net install</span>. No zip files, no manual copying. A second line downloads the example data and do-files that reproduce the papers.</p>
+        <p class="mt-6 text-[14px] text-mist">Choose a package, then copy the commands into the Stata command window.</p>
+      </div>
+      <div class="lg:col-span-7 min-w-0">
+        <div class="console" role="region" aria-label="Stata install commands">
+          <div class="console-bar flex items-center justify-between gap-4 px-4">
+            <div role="tablist" aria-label="Package" class="flex gap-6 text-[13px] num" id="consoleTabs">
+              <button role="tab" class="ctab py-3.5" data-pkg="splitsc" aria-selected="true">splitsc</button>
+              <button role="tab" class="ctab py-3.5" data-pkg="easc" aria-selected="false">easc</button>
+            </div>
+            <span class="eyebrow !text-[10px] text-mist/80 hidden sm:inline">Stata command window</span>
+          </div>
+          <div class="px-4 sm:px-6 pt-4 pb-3 num text-[13px] leading-6" id="consoleBody"></div>
+          <div class="flex items-center justify-between gap-4 px-4 sm:px-6 py-3 border-t border-white/10">
+            <span class="text-[12px] text-mist" id="consoleReq"></span>
+            <button id="copyAll" class="text-[13px] text-ivory border border-white/25 hover:border-brass hover:text-brass transition-colors px-3.5 py-1.5">Copy all</button>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- splitsc -->
-  <section class="bg-ivory" id="splitsc">
+  <!-- Packages -->
+  <section class="bg-ivory">
     <div class="mx-auto max-w-page px-4 sm:px-8 py-16 md:py-24">
-      <p class="opener eyebrow text-slate">Stata package</p>
-      <div class="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-12">
-        <div class="lg:col-span-7 min-w-0">
-          <p class="flex flex-wrap items-center gap-3"><span class="eyebrow !text-[10px] text-ivory bg-oxblood px-2.5 py-1">New · 2026</span><span class="eyebrow !text-[11px] text-slate">Honest inference for synthetic control · Stata</span></p>
-          <h2 class="font-serif font-light text-[clamp(40px,5vw,60px)] leading-[1] text-navy mt-5 num">splitsc</h2>
-          <p class="mt-6 text-[17px] leading-[1.75] text-charcoal/90 measure">Confidence intervals for synthetic control estimates that stay valid when the fit is imperfect: the treated unit sits outside its donor pool and the pre-treatment period is short. The weights are fitted on an early block of pre-treatment periods, and a later block is used to estimate bias and noise.</p>
-          <p class="mt-6 text-[14px] text-slate">Implements <a class="link" href="https://arxiv.org/abs/2610.32383" target="_blank" rel="noopener">Spruk (2026), Honest Inference for Synthetic Controls with Imperfect Fit: Time-Split Validity and the Choice of Anchor</a>.</p>
-        </div>
-        <div class="lg:col-span-5 min-w-0">
-          <p class="eyebrow !text-[11px] text-slate">Install from Stata</p>
-          <div class="mt-3 bg-navy text-ivory border border-navy p-4 flex items-start justify-between gap-4">
-            <code id="splitscCmd" class="num text-[13px] leading-6 break-all">net install splitsc, from("https://rspruk.github.io/splitsc/") replace</code>
-            <button id="copySplitsc" class="shrink-0 text-[12px] text-brass hover:text-ivory pt-0.5">Copy</button>
+      <p class="opener eyebrow text-slate">Stata packages</p>
+      <div class="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+        <!-- splitsc -->
+        <article id="pkg-splitsc" class="pkg border border-rule bg-[#FBF9F5] p-6 sm:p-9 flex flex-col min-w-0 scroll-mt-28">
+          <p class="flex flex-wrap items-center gap-3"><span class="eyebrow !text-[10px] text-ivory bg-oxblood px-2.5 py-1">New · 2026</span><span class="eyebrow !text-[11px] text-slate">Honest inference for synthetic control</span></p>
+          <h2 class="num text-[clamp(34px,4vw,46px)] leading-[1] text-navy mt-6 tracking-[-0.02em]">splitsc</h2>
+          <p class="font-serif text-[21px] leading-[1.35] text-navy mt-4">Confidence intervals that stay valid when the synthetic control does not fit perfectly.</p>
+          <p class="mt-4 text-[16px] leading-[1.75] text-charcoal/85">Donor weights are fitted on an early block of pre-treatment periods. A later block, untouched by the fit, is used to measure the drift of the gap and its noise. The result is an interval with finite-sample coverage over a stated class of misfit, and a single number for how much misfit the estimate can withstand.</p>
+
+          <figure class="mt-7 border border-rule bg-ivory p-4" aria-label="Diagram of the time split">
+            <svg viewBox="0 0 520 96" class="w-full h-auto block" role="img" aria-label="Timeline split into a training block, a validation block and the post-treatment period">
+              <rect class="split-seg" x="0" y="34" width="212" height="22" fill="#D9D3C7"/>
+              <rect class="split-seg" x="212" y="34" width="150" height="22" fill="#0E1B2C"/>
+              <rect class="split-seg" x="366" y="34" width="154" height="22" fill="#8C2F2B" fill-opacity=".85"/>
+              <line x1="364" y1="18" x2="364" y2="72" stroke="#8C2F2B" stroke-width="1.5" stroke-dasharray="3 3"/>
+              <text x="106" y="24" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#5B6675">training</text>
+              <text x="287" y="24" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#0E1B2C">validation</text>
+              <text x="443" y="24" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#8C2F2B">post-treatment</text>
+              <text x="106" y="76" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="11" fill="#5B6675">fit the weights</text>
+              <text x="287" y="76" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="11" fill="#5B6675">measure drift and noise</text>
+              <text x="443" y="76" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="11" fill="#5B6675">estimate the effect</text>
+              <text x="364" y="90" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#8C2F2B">intervention</text>
+            </svg>
+          </figure>
+
+          <div class="mt-7">
+            <div class="feat"><span class="num text-[12px] text-oxblood pt-0.5">01</span><span class="text-[15px] leading-6"><span class="font-medium text-navy">Time-split interval</span> for the average effect, with the trend-balancing anchor</span></div>
+            <div class="feat"><span class="num text-[12px] text-oxblood pt-0.5">02</span><span class="text-[15px] leading-6"><span class="font-medium text-navy">Breakdown curvature</span>, the bend in the counterfactual path at which the effect is no longer distinguishable from zero</span></div>
+            <div class="feat"><span class="num text-[12px] text-oxblood pt-0.5">03</span><span class="text-[15px] leading-6"><span class="font-medium text-navy">Placebo curvatures</span> of the donors and a placebo-calibrated drift bound</span></div>
+            <div class="feat"><span class="num text-[12px] text-oxblood pt-0.5">04</span><span class="text-[15px] leading-6"><span class="font-medium text-navy">Breakdown persistence</span> under serially dependent noise</span></div>
+            <div class="feat"><span class="num text-[12px] text-oxblood pt-0.5">05</span><span class="text-[15px] leading-6"><span class="font-medium text-navy">Five figures</span> with <span class="num text-[13px]">graph(all)</span>, from the gap plot to the sensitivity curves</span></div>
           </div>
-          <p class="mt-3 text-[13px] text-slate">Then type <code class="num text-charcoal">help splitsc</code> for syntax and examples.</p>
-          <ul class="mt-8 border-t border-navy/70">
-            <li class="border-b border-rule"><a class="group flex items-center justify-between gap-6 py-5 px-2 -mx-2 hover:bg-parchment transition-colors" href="splitsc.zip" download><span class="min-w-0"><span class="font-serif text-[21px] text-navy block">Package files</span><span class="text-[13px] text-slate block mt-1">Command, help file and example do-file</span><span class="num text-[11px] text-slate/80 block mt-1">splitsc.zip</span></span><span class="shrink-0 border border-rule group-hover:border-oxblood group-hover:text-oxblood transition-colors text-[12px] px-3 py-1.5 num">ZIP ↓</span></a></li>
-            <li class="border-b border-rule"><a class="group flex items-center justify-between gap-6 py-5 px-2 -mx-2 hover:bg-parchment transition-colors" href="https://arxiv.org/abs/2610.32383" target="_blank" rel="noopener"><span class="min-w-0"><span class="font-serif text-[21px] text-navy block">Paper</span><span class="text-[13px] text-slate block mt-1">Method, theory and coverage results</span><span class="num text-[11px] text-slate/80 block mt-1">arXiv 2610.32383</span></span><span class="shrink-0 border border-rule group-hover:border-oxblood group-hover:text-oxblood transition-colors text-[12px] px-3 py-1.5 num">arXiv ↗</span></a></li>
+
+          <dl class="mt-7 grid grid-cols-3 gap-4 text-[12px]">
+            <div><dt class="eyebrow !text-[10px] text-slate">Version</dt><dd class="num text-navy mt-1.5">0.9.6</dd></div>
+            <div><dt class="eyebrow !text-[10px] text-slate">Requires</dt><dd class="num text-navy mt-1.5">Stata 15+</dd></div>
+            <div><dt class="eyebrow !text-[10px] text-slate">Examples</dt><dd class="text-navy mt-1.5">California, West Germany, Basque Country</dd></div>
+          </dl>
+
+          <ul class="mt-8 border-t border-navy/70 mt-auto">
+            <li class="border-b border-rule"><a class="rowlink group flex items-center justify-between gap-6 py-4 px-2 -mx-2" href="https://arxiv.org/abs/2610.32383" target="_blank" rel="noopener"><span class="min-w-0"><span class="font-serif text-[19px] text-navy block">Paper</span><span class="text-[13px] text-slate block mt-0.5">Honest Inference for Synthetic Controls with Imperfect Fit</span></span><span class="tag shrink-0 border border-rule transition-colors text-[12px] px-3 py-1.5 num">arXiv ↗</span></a></li>
+            <li class="border-b border-rule"><a class="rowlink group flex items-center justify-between gap-6 py-4 px-2 -mx-2" href="https://github.com/rspruk/rspruk.github.io/tree/main/splitsc" target="_blank" rel="noopener"><span class="min-w-0"><span class="font-serif text-[19px] text-navy block">Source and data</span><span class="text-[13px] text-slate block mt-0.5">Command, help file, certification and example do-files</span></span><span class="tag shrink-0 border border-rule transition-colors text-[12px] px-3 py-1.5 num">GitHub ↗</span></a></li>
+            <li class="border-b border-rule"><button class="rowlink group w-full text-left flex items-center justify-between gap-6 py-4 px-2 -mx-2" data-bib="splitsc"><span class="min-w-0"><span class="font-serif text-[19px] text-navy block">Cite</span><span class="text-[13px] text-slate block mt-0.5">BibTeX entry for the paper</span></span><span class="tag shrink-0 border border-rule transition-colors text-[12px] px-3 py-1.5 num">Copy</span></button></li>
           </ul>
-        </div>
+        </article>
+
+        <!-- easc -->
+        <article id="pkg-easc" class="pkg border border-rule bg-[#FBF9F5] p-6 sm:p-9 flex flex-col min-w-0 scroll-mt-28">
+          <p class="flex flex-wrap items-center gap-3"><span class="eyebrow !text-[10px] text-navy border border-navy px-2.5 py-1">2026</span><span class="eyebrow !text-[11px] text-slate">Synthetic control under common shocks</span></p>
+          <h2 class="num text-[clamp(34px,4vw,46px)] leading-[1] text-navy mt-6 tracking-[-0.02em]">easc</h2>
+          <p class="font-serif text-[21px] leading-[1.35] text-navy mt-4">Exposure-augmented synthetic control for shocks the donor pool cannot reproduce.</p>
+          <p class="mt-4 text-[16px] leading-[1.75] text-charcoal/85">When a common shock hits the treated unit with an exposure no combination of donors matches, the standard synthetic control can attribute part of the shock to the treatment. <span class="num text-[14px]">easc</span> diagnoses the problem, balances the donors on exposure, and corrects the estimate. The application is Iran's confrontation with the West.</p>
+
+          <div class="mt-7">
+            <div class="feat"><span class="num text-[12px] text-oxblood pt-0.5">01</span><span class="text-[15px] leading-6"><span class="font-medium text-navy">Silent-factor diagnostics</span>, the leverage of an observed common shock relative to the donors' latent factors</span></div>
+            <div class="feat"><span class="num text-[12px] text-oxblood pt-0.5">02</span><span class="text-[15px] leading-6"><span class="font-medium text-navy">Exposure imbalance</span> and the exposure-fit frontier of the weights</span></div>
+            <div class="feat"><span class="num text-[12px] text-oxblood pt-0.5">03</span><span class="text-[15px] leading-6"><span class="font-medium text-navy">Exposure-balanced and exposure-augmented</span> synthetic control estimators</span></div>
+            <div class="feat"><span class="num text-[12px] text-oxblood pt-0.5">04</span><span class="text-[15px] leading-6"><span class="font-medium text-navy">Placebo inference</span>, bias-aware confidence intervals and breakdown values</span></div>
+          </div>
+
+          <dl class="mt-7 grid grid-cols-3 gap-4 text-[12px]">
+            <div><dt class="eyebrow !text-[10px] text-slate">Version</dt><dd class="num text-navy mt-1.5">1.0.0</dd></div>
+            <div><dt class="eyebrow !text-[10px] text-slate">Requires</dt><dd class="num text-navy mt-1.5">Stata 16+</dd></div>
+            <div><dt class="eyebrow !text-[10px] text-slate">Example</dt><dd class="text-navy mt-1.5">Iran, 1996 to 2024</dd></div>
+          </dl>
+
+          <ul class="mt-8 border-t border-navy/70 mt-auto">
+            <li class="border-b border-rule"><a class="rowlink group flex items-center justify-between gap-6 py-4 px-2 -mx-2" href="esc-scm-paper.pdf" target="_blank" rel="noopener"><span class="min-w-0"><span class="font-serif text-[19px] text-navy block">Paper</span><span class="text-[13px] text-slate block mt-0.5">Methods paper with the Iran application</span></span><span class="tag shrink-0 border border-rule transition-colors text-[12px] px-3 py-1.5 num">PDF ↓</span></a></li>
+            <li class="border-b border-rule"><a class="rowlink group flex items-center justify-between gap-6 py-4 px-2 -mx-2" href="esc-scm-replication.zip" download><span class="min-w-0"><span class="font-serif text-[19px] text-navy block">Replication package</span><span class="text-[13px] text-slate block mt-0.5">Data, master do-file and README</span></span><span class="tag shrink-0 border border-rule transition-colors text-[12px] px-3 py-1.5 num">ZIP ↓</span></a></li>
+            <li class="border-b border-rule"><a class="rowlink group flex items-center justify-between gap-6 py-4 px-2 -mx-2" href="https://github.com/rspruk/rspruk.github.io/tree/main/easc" target="_blank" rel="noopener"><span class="min-w-0"><span class="font-serif text-[19px] text-navy block">Source and data</span><span class="text-[13px] text-slate block mt-0.5">Command, help file, test do-file and the Iran panel</span></span><span class="tag shrink-0 border border-rule transition-colors text-[12px] px-3 py-1.5 num">GitHub ↗</span></a></li>
+            <li class="border-b border-rule"><button class="rowlink group w-full text-left flex items-center justify-between gap-6 py-4 px-2 -mx-2" data-bib="easc"><span class="min-w-0"><span class="font-serif text-[19px] text-navy block">Cite</span><span class="text-[13px] text-slate block mt-0.5">BibTeX entry for the paper</span></span><span class="tag shrink-0 border border-rule transition-colors text-[12px] px-3 py-1.5 num">Copy</span></button></li>
+          </ul>
+          <p class="mt-4 text-[13px] text-slate">The application to Iran is in <a class="link" href="https://arxiv.org/abs/2610.05535" target="_blank" rel="noopener">arXiv 2610.05535</a>.</p>
+        </article>
       </div>
     </div>
   </section>
 
   <!-- Replication archive -->
-  <section class="bg-parchment">
+  <section class="bg-parchment" id="replication">
     <div class="mx-auto max-w-page px-4 sm:px-8 py-16 md:py-20 grid grid-cols-1 lg:grid-cols-12 gap-12">
       <div class="lg:col-span-5 min-w-0">
         <p class="opener eyebrow text-slate">Replication archive</p>
@@ -504,12 +595,12 @@
         <a class="act inline-block mt-6 text-[15px]" href="https://dataverse.harvard.edu/dataverse.xhtml?alias=rspruk" target="_blank" rel="noopener">Open the Dataverse collection <span class="arr">↗</span></a>
       </div>
       <div class="lg:col-span-7 min-w-0">
-        <p class="opener eyebrow text-slate">How to use a package</p>
+        <p class="opener eyebrow text-slate">How to use a replication package</p>
         <ol class="mt-8 border-t border-navy/70">
           <li class="grid grid-cols-[40px_1fr] gap-4 py-5 border-b border-rule"><span class="num text-[13px] text-oxblood">01</span><span class="text-[16px] leading-7">Download and unzip the package into its own folder.</span></li>
           <li class="grid grid-cols-[40px_1fr] gap-4 py-5 border-b border-rule"><span class="num text-[13px] text-oxblood">02</span><span class="text-[16px] leading-7">Read the README for software versions and required user-written commands.</span></li>
           <li class="grid grid-cols-[40px_1fr] gap-4 py-5 border-b border-rule"><span class="num text-[13px] text-oxblood">03</span><span class="text-[16px] leading-7">Set the working directory to that folder and run the master do-file. It reproduces every table and figure in order.</span></li>
-          <li class="grid grid-cols-[40px_1fr] gap-4 py-5 border-b border-rule"><span class="num text-[13px] text-oxblood">04</span><span class="text-[16px] leading-7">Questions or a result that does not match? <a class="link" href="#contact">Write to me</a>; I fix and repost.</span></li>
+          <li class="grid grid-cols-[40px_1fr] gap-4 py-5 border-b border-rule"><span class="num text-[13px] text-oxblood">04</span><span class="text-[16px] leading-7">Questions or a result that does not match? <a class="link" href="#contact">Write to me</a> and I will fix and repost.</span></li>
         </ol>
       </div>
     </div>
@@ -1208,24 +1299,51 @@ $('#profiles').innerHTML = PROFILES.map(([n, s, u]) => `
 
 $('#collabs').textContent = COLLABORATORS.join(' · ');
 
-/* ===== Code & Data: exposure-augmented SCM files =====
-   The three files sit at the top level of the repository, next to index.html, with exactly these names. */
-const ESC_FILES = [
-  { label: 'Paper', kind: 'PDF', path: 'esc-scm-paper.pdf', note: 'Methods paper with the Iran application' },
-  { label: 'Replication package', kind: 'ZIP', path: 'esc-scm-replication.zip', note: 'Data, master do-file and README' },
-  { label: 'Stata code', kind: 'ZIP', path: 'esc-scm-stata.zip', note: 'Estimator, diagnostics and help file' }
-];
-const ESC_BIB = '@unpublished{spruk2026outofspan,\n  author = {Spruk, Rok},\n  title  = {Synthetic Control under Out-of-Span Common Shocks: Diagnosis, Exposure Balance and Correction},\n  note   = {Working paper},\n  year   = {2026}\n}';
-function escRow(f, live) {
-  const inner = `<span class="min-w-0"><span class="font-serif text-[21px] block">${esc(f.label)}</span><span class="text-[13px] text-mist block mt-1">${esc(f.note)}</span><span class="num text-[11px] text-mist/70 block mt-1 break-all">${esc(f.path.split('/').pop())}</span></span>`;
-  return live
-    ? `<li class="border-b border-white/15"><a class="group flex items-center justify-between gap-6 py-5 hover:bg-midnight transition-colors px-2 -mx-2" href="${f.path}" download>${inner}<span class="shrink-0 border border-white/30 group-hover:border-brass group-hover:text-brass transition-colors text-[12px] px-3 py-1.5 num">${f.kind} ↓</span></a></li>`
-    : `<li class="border-b border-white/15 flex items-center justify-between gap-6 py-5">${inner}<span class="shrink-0 text-[12px] text-mist/80 eyebrow !tracking-[.1em]">Coming soon</span></li>`;
+/* ===== Code & Data: Stata packages =====
+   Both packages are served from folders of this site (splitsc/ and easc/), each with its own stata.toc and .pkg,
+   so Stata's net install reads them directly. */
+const PKGS = {
+  splitsc: {
+    req: 'Stata 15 or later · version 0.9.6',
+    lines: [
+      { c: 'net install splitsc, from("https://rspruk.github.io/splitsc/") replace', note: 'install the command and help file' },
+      { c: 'net get splitsc, from("https://rspruk.github.io/splitsc/")', note: 'example data and do-files' },
+      { c: 'help splitsc', note: 'syntax, options and stored results' }
+    ],
+    bib: '@unpublished{spruk2026honest,\n  author = {Spruk, Rok},\n  title  = {Honest Inference for Synthetic Controls with Imperfect Fit: Time-Split Validity and the Choice of Anchor},\n  note   = {arXiv:2610.32383},\n  year   = {2026}\n}'
+  },
+  easc: {
+    req: 'Stata 16 or later · version 1.0.0',
+    lines: [
+      { c: 'net install easc, from("https://rspruk.github.io/easc/") replace', note: 'install the command and help file' },
+      { c: 'net get easc, from("https://rspruk.github.io/easc/")', note: 'Iran panel and test do-file' },
+      { c: 'help easc', note: 'syntax, options and stored results' }
+    ],
+    bib: '@unpublished{spruk2026outofspan,\n  author = {Spruk, Rok},\n  title  = {Synthetic Control under Out-of-Span Common Shocks: Diagnosis, Exposure Balance and Correction},\n  note   = {Working paper},\n  year   = {2026}\n}'
+  }
+};
+let consolePkg = 'splitsc';
+function hlStata(cmd) {
+  const e = esc(cmd);
+  return e.replace(/^(net install|net get|help)/, '<span class="k">$1</span>').replace(/(&quot;[^&]*?&quot;)/g, '<span class="s">$1</span>');
 }
-$('#escFiles').innerHTML = ESC_FILES.map(f => escRow(f, true)).join('');
-$('#escBib').textContent = ESC_BIB;
-$('#copyEscBib').addEventListener('click', () => copyText(ESC_BIB, 'BibTeX copied'));
-$('#copySplitsc').addEventListener('click', () => copyText($('#splitscCmd').textContent, 'Install command copied'));
+function renderConsole() {
+  const p = PKGS[consolePkg];
+  $('#consoleBody').innerHTML = p.lines.map((l, i) =>
+    '<div class="ccomment text-[12px] ' + (i ? 'mt-2' : '') + '">* ' + esc(l.note) + '</div>' +
+    '<div class="cline"><span class="p">.</span><span class="c">' + hlStata(l.c) + '</span><button class="cp" data-line="' + i + '" aria-label="Copy this line">Copy</button></div>').join('');
+  $('#consoleReq').textContent = p.req;
+  document.querySelectorAll('#consoleTabs [data-pkg]').forEach(b => b.setAttribute('aria-selected', String(b.dataset.pkg === consolePkg)));
+}
+renderConsole();
+$('#consoleTabs').addEventListener('click', e => { const b = e.target.closest('[data-pkg]'); if (!b) return; consolePkg = b.dataset.pkg; renderConsole(); });
+$('#consoleBody').addEventListener('click', e => { const b = e.target.closest('[data-line]'); if (!b) return; copyText(PKGS[consolePkg].lines[+b.dataset.line].c, 'Command copied'); });
+$('#copyAll').addEventListener('click', () => copyText(PKGS[consolePkg].lines.map(l => l.c).join('\n'), 'Commands copied. Paste them into Stata.'));
+document.querySelectorAll('[data-bib]').forEach(b => b.addEventListener('click', () => copyText(PKGS[b.dataset.bib].bib, 'BibTeX copied')));
+document.querySelectorAll('.jump').forEach(a => a.addEventListener('click', e => {
+  e.preventDefault(); const t = document.getElementById(a.getAttribute('href').slice(1));
+  if (t) t.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+}));
 
 let bioKey = 'short';
 function renderBio() { $('#bioText').textContent = BIOS[bioKey]; document.querySelectorAll('#bioTabs [data-bio]').forEach(b => b.setAttribute('aria-selected', String(b.dataset.bio === bioKey))); }
