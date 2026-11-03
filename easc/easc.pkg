@@ -1,0 +1,28 @@
+v 3
+d easc. Exposure-augmented synthetic control under out-of-span common shocks
+d
+d easc implements the diagnostics, estimators and inference of Spruk (2026),
+d "Synthetic Control under Out-of-Span Common Shocks: Diagnosis, Exposure
+d Balance and Correction": silent-factor diagnostics (partial leverage of an
+d observed common shock relative to the donors' latent factors), the exposure
+d imbalance and exposure-fit frontier of synthetic-control weights, the
+d exposure-balanced and exposure-augmented synthetic control, placebo
+d inference, bias-aware confidence intervals and breakdown values.
+d
+d KW: synthetic control
+d KW: common shocks
+d KW: exposure balance
+d KW: augmented synthetic control
+d KW: sensitivity analysis
+d
+d Requires: Stata version 16
+d
+d Distribution-Date: 20261009
+d
+d Author: Rok Spruk, University of Ljubljana
+d Support: email rok.spruk@ef.uni-lj.si
+d
+f easc.ado
+f easc.sthlp
+f test_easc.do
+f iran_easc.csv

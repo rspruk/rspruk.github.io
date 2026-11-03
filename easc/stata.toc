@@ -1,0 +1,4 @@
+v 3
+d Rok Spruk, University of Ljubljana
+d Stata commands for synthetic control under out-of-span common shocks
+p easc  Exposure-augmented synthetic control under out-of-span common shocks
