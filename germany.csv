@@ -1,0 +1,749 @@
+unit,year,y
+Australia,1960,2373
+Australia,1961,2346
+Australia,1962,2539
+Australia,1963,2717
+Australia,1964,2873
+Australia,1965,2973
+Australia,1966,3230
+Australia,1967,3404
+Australia,1968,3788
+Australia,1969,4162
+Australia,1970,4490
+Australia,1971,4677
+Australia,1972,5013
+Australia,1973,5595
+Australia,1974,6024
+Australia,1975,6683
+Australia,1976,7140
+Australia,1977,7482
+Australia,1978,8272
+Australia,1979,9174
+Australia,1980,10203
+Australia,1981,11513
+Australia,1982,11537
+Australia,1983,12300
+Australia,1984,13120
+Australia,1985,14019
+Australia,1986,14537
+Australia,1987,15554
+Australia,1988,16524
+Australia,1989,17255
+Australia,1990,17322
+Australia,1991,17652
+Australia,1992,18496
+Australia,1993,19432
+Australia,1994,20583
+Australia,1995,21773
+Australia,1996,22562
+Australia,1997,23649
+Australia,1998,24853
+Australia,1999,26283
+Australia,2000,27403
+Australia,2001,28492
+Australia,2002,29819
+Australia,2003,31273
+Austria,1960,1796
+Austria,1961,1899
+Austria,1962,1977
+Austria,1963,2074
+Austria,1964,2224
+Austria,1965,2336
+Austria,1966,2537
+Austria,1967,2668
+Austria,1968,2908
+Austria,1969,3239
+Austria,1970,3732
+Austria,1971,4100
+Austria,1972,4513
+Austria,1973,4969
+Austria,1974,5622
+Austria,1975,6147
+Austria,1976,6810
+Austria,1977,7588
+Austria,1978,8117
+Austria,1979,9288
+Austria,1980,10312
+Austria,1981,11242
+Austria,1982,12148
+Austria,1983,13048
+Austria,1984,13533
+Austria,1985,14296
+Austria,1986,14921
+Austria,1987,15549
+Austria,1988,16595
+Austria,1989,17768
+Austria,1990,19070
+Austria,1991,20172
+Austria,1992,20960
+Austria,1993,21220
+Austria,1994,22139
+Austria,1995,22976
+Austria,1996,24008
+Austria,1997,24472
+Austria,1998,25314
+Austria,1999,26558
+Austria,2000,28359
+Austria,2001,28855
+Austria,2002,29942
+Austria,2003,30796
+Belgium,1960,1782
+Belgium,1961,1883
+Belgium,1962,2018
+Belgium,1963,2122
+Belgium,1964,2288
+Belgium,1965,2414
+Belgium,1966,2559
+Belgium,1967,2719
+Belgium,1968,2958
+Belgium,1969,3308
+Belgium,1970,3797
+Belgium,1971,4129
+Belgium,1972,4512
+Belgium,1973,5039
+Belgium,1974,5707
+Belgium,1975,6146
+Belgium,1976,6854
+Belgium,1977,7326
+Belgium,1978,8056
+Belgium,1979,8921
+Belgium,1980,10156
+Belgium,1981,11079
+Belgium,1982,11827
+Belgium,1983,12334
+Belgium,1984,13113
+Belgium,1985,13735
+Belgium,1986,14292
+Belgium,1987,15013
+Belgium,1988,16209
+Belgium,1989,17345
+Belgium,1990,18526
+Belgium,1991,19453
+Belgium,1992,20123
+Belgium,1993,20308
+Belgium,1994,21340
+Belgium,1995,22248
+Belgium,1996,22687
+Belgium,1997,23416
+Belgium,1998,24164
+Belgium,1999,24792
+Belgium,2000,26631
+Belgium,2001,28001
+Belgium,2002,29330
+Belgium,2003,30082
+Denmark,1960,2329
+Denmark,1961,2485
+Denmark,1962,2665
+Denmark,1963,2700
+Denmark,1964,2980
+Denmark,1965,3177
+Denmark,1966,3377
+Denmark,1967,3580
+Denmark,1968,3892
+Denmark,1969,4352
+Denmark,1970,4541
+Denmark,1971,4858
+Denmark,1972,5262
+Denmark,1973,5719
+Denmark,1974,6121
+Denmark,1975,6565
+Denmark,1976,7371
+Denmark,1977,7901
+Denmark,1978,8585
+Denmark,1979,9566
+Denmark,1980,10362
+Denmark,1981,11106
+Denmark,1982,12115
+Denmark,1983,12822
+Denmark,1984,13777
+Denmark,1985,14698
+Denmark,1986,15608
+Denmark,1987,16024
+Denmark,1988,16766
+Denmark,1989,17418
+Denmark,1990,18237
+Denmark,1991,19070
+Denmark,1992,19829
+Denmark,1993,20199
+Denmark,1994,21691
+Denmark,1995,22693
+Denmark,1996,23781
+Denmark,1997,24878
+Denmark,1998,25669
+Denmark,1999,27113
+Denmark,2000,28798
+Denmark,2001,29837
+Denmark,2002,30318
+Denmark,2003,30853
+France,1960,1858
+France,1961,1959
+France,1962,2099
+France,1963,2205
+France,1964,2367
+France,1965,2526
+France,1966,2728
+France,1967,2915
+France,1968,3163
+France,1969,3531
+France,1970,3857
+France,1971,4203
+France,1972,4535
+France,1973,5008
+France,1974,5594
+France,1975,6077
+France,1976,6673
+France,1977,7292
+France,1978,8031
+France,1979,8948
+France,1980,9891
+France,1981,10929
+France,1982,11869
+France,1983,12518
+France,1984,13145
+France,1985,13746
+France,1986,14308
+France,1987,14940
+France,1988,16040
+France,1989,17193
+France,1990,18244
+France,1991,19021
+France,1992,19746
+France,1993,19920
+France,1994,20695
+France,1995,21545
+France,1996,22288
+France,1997,23370
+France,1998,24412
+France,1999,25111
+France,2000,26690
+France,2001,28043
+France,2002,28829
+France,2003,29210
+Greece,1960,707
+Greece,1961,1028
+Greece,1962,1049
+Greece,1963,1188
+Greece,1964,1316
+Greece,1965,1492
+Greece,1966,1634
+Greece,1967,1754
+Greece,1968,1967
+Greece,1969,2298
+Greece,1970,2631
+Greece,1971,2988
+Greece,1972,3383
+Greece,1973,3844
+Greece,1974,3907
+Greece,1975,4505
+Greece,1976,5024
+Greece,1977,5417
+Greece,1978,6138
+Greece,1979,6781
+Greece,1980,7374
+Greece,1981,7870
+Greece,1982,8204
+Greece,1983,8388
+Greece,1984,8834
+Greece,1985,9297
+Greece,1986,9525
+Greece,1987,9548
+Greece,1988,10277
+Greece,1989,11036
+Greece,1990,11405
+Greece,1991,11971
+Greece,1992,12198
+Greece,1993,12166
+Greece,1994,12566
+Greece,1995,12991
+Greece,1996,13418
+Greece,1997,14127
+Greece,1998,14665
+Greece,1999,15213
+Greece,2000,16272
+Greece,2001,17332
+Greece,2002,19119
+Greece,2003,20479
+Italy,1960,1620
+Italy,1961,1763
+Italy,1962,1900
+Italy,1963,2021
+Italy,1964,2093
+Italy,1965,2205
+Italy,1966,2400
+Italy,1967,2624
+Italy,1968,2910
+Italy,1969,3227
+Italy,1970,3602
+Italy,1971,3834
+Italy,1972,4101
+Italy,1973,4594
+Italy,1974,5240
+Italy,1975,5601
+Italy,1976,6288
+Italy,1977,6821
+Italy,1978,7542
+Italy,1979,8594
+Italy,1980,9643
+Italy,1981,10593
+Italy,1982,11275
+Italy,1983,11812
+Italy,1984,12543
+Italy,1985,13285
+Italy,1986,13896
+Italy,1987,14688
+Italy,1988,15784
+Italy,1989,16875
+Italy,1990,17946
+Italy,1991,18845
+Italy,1992,19367
+Italy,1993,19778
+Italy,1994,20577
+Italy,1995,21532
+Italy,1996,22235
+Italy,1997,22810
+Italy,1998,23840
+Italy,1999,24402
+Italy,2000,25759
+Italy,2001,26586
+Italy,2002,27320
+Italy,2003,27537
+Japan,1960,1010
+Japan,1961,1143
+Japan,1962,1262
+Japan,1963,1374
+Japan,1964,1546
+Japan,1965,1647
+Japan,1966,1889
+Japan,1967,2133
+Japan,1968,2496
+Japan,1969,2917
+Japan,1970,3293
+Japan,1971,3575
+Japan,1972,3988
+Japan,1973,4491
+Japan,1974,4778
+Japan,1975,5300
+Japan,1976,5768
+Japan,1977,6344
+Japan,1978,7084
+Japan,1979,8027
+Japan,1980,8931
+Japan,1981,9986
+Japan,1982,10813
+Japan,1983,11346
+Japan,1984,12064
+Japan,1985,12978
+Japan,1986,13590
+Japan,1987,14425
+Japan,1988,15862
+Japan,1989,17269
+Japan,1990,18815
+Japan,1991,20055
+Japan,1992,20648
+Japan,1993,21122
+Japan,1994,21757
+Japan,1995,22551
+Japan,1996,23714
+Japan,1997,24478
+Japan,1998,24429
+Japan,1999,24709
+Japan,2000,26015
+Japan,2001,26619
+Japan,2002,27196
+Japan,2003,28071
+Netherlands,1960,2113
+Netherlands,1961,2111
+Netherlands,1962,2275
+Netherlands,1963,2360
+Netherlands,1964,2566
+Netherlands,1965,2739
+Netherlands,1966,2874
+Netherlands,1967,3078
+Netherlands,1968,3399
+Netherlands,1969,3951
+Netherlands,1970,4342
+Netherlands,1971,4705
+Netherlands,1972,4984
+Netherlands,1973,5475
+Netherlands,1974,6165
+Netherlands,1975,6699
+Netherlands,1976,7345
+Netherlands,1977,7959
+Netherlands,1978,8676
+Netherlands,1979,9504
+Netherlands,1980,10458
+Netherlands,1981,11304
+Netherlands,1982,11784
+Netherlands,1983,12419
+Netherlands,1984,13234
+Netherlands,1985,13938
+Netherlands,1986,14613
+Netherlands,1987,15197
+Netherlands,1988,16082
+Netherlands,1989,17387
+Netherlands,1990,18665
+Netherlands,1991,19626
+Netherlands,1992,20224
+Netherlands,1993,20679
+Netherlands,1994,21588
+Netherlands,1995,22585
+Netherlands,1996,23531
+Netherlands,1997,24692
+Netherlands,1998,25811
+Netherlands,1999,26654
+Netherlands,2000,28467
+Netherlands,2001,30359
+Netherlands,2002,31284
+Netherlands,2003,31792
+New Zealand,1960,2545
+New Zealand,1961,2659
+New Zealand,1962,2713
+New Zealand,1963,2866
+New Zealand,1964,3001
+New Zealand,1965,3224
+New Zealand,1966,3481
+New Zealand,1967,3360
+New Zealand,1968,3489
+New Zealand,1969,3969
+New Zealand,1970,4136
+New Zealand,1971,4438
+New Zealand,1972,4780
+New Zealand,1973,5335
+New Zealand,1974,6041
+New Zealand,1975,6382
+New Zealand,1976,6748
+New Zealand,1977,6867
+New Zealand,1978,7301
+New Zealand,1979,7915
+New Zealand,1980,8656
+New Zealand,1981,9736
+New Zealand,1982,10687
+New Zealand,1983,11262
+New Zealand,1984,12141
+New Zealand,1985,12556
+New Zealand,1986,13085
+New Zealand,1987,13402
+New Zealand,1988,13569
+New Zealand,1989,14124
+New Zealand,1990,14420
+New Zealand,1991,14252
+New Zealand,1992,14679
+New Zealand,1993,15605
+New Zealand,1994,16686
+New Zealand,1995,17402
+New Zealand,1996,17879
+New Zealand,1997,18510
+New Zealand,1998,18669
+New Zealand,1999,19937
+New Zealand,2000,20789
+New Zealand,2001,21825
+New Zealand,2002,22662
+New Zealand,2003,23728
+Norway,1960,1713
+Norway,1961,1823
+Norway,1962,1905
+Norway,1963,1991
+Norway,1964,2112
+Norway,1965,2268
+Norway,1966,2417
+Norway,1967,2620
+Norway,1968,2784
+Norway,1969,3035
+Norway,1970,3213
+Norway,1971,3523
+Norway,1972,3814
+Norway,1973,4138
+Norway,1974,4728
+Norway,1975,5458
+Norway,1976,6116
+Norway,1977,6742
+Norway,1978,7412
+Norway,1979,8354
+Norway,1980,9557
+Norway,1981,10548
+Norway,1982,11205
+Norway,1983,12022
+Norway,1984,13220
+Norway,1985,14354
+Norway,1986,15184
+Norway,1987,15823
+Norway,1988,16299
+Norway,1989,17043
+Norway,1990,18004
+Norway,1991,19212
+Norway,1992,20185
+Norway,1993,21088
+Norway,1994,22534
+Norway,1995,23874
+Norway,1996,26263
+Norway,1997,27776
+Norway,1998,27294
+Norway,1999,30011
+Norway,2000,36273
+Norway,2001,37078
+Norway,2002,36617
+Norway,2003,37245
+Portugal,1960,728
+Portugal,1961,783
+Portugal,1962,848
+Portugal,1963,905
+Portugal,1964,979
+Portugal,1965,1084
+Portugal,1966,1170
+Portugal,1967,1293
+Portugal,1968,1475
+Portugal,1969,1592
+Portugal,1970,1916
+Portugal,1971,2153
+Portugal,1972,2420
+Portugal,1973,2845
+Portugal,1974,3048
+Portugal,1975,3045
+Portugal,1976,3407
+Portugal,1977,3784
+Portugal,1978,4120
+Portugal,1979,4663
+Portugal,1980,5263
+Portugal,1981,5812
+Portugal,1982,6263
+Portugal,1983,6479
+Portugal,1984,6570
+Portugal,1985,6959
+Portugal,1986,7414
+Portugal,1987,8126
+Portugal,1988,9057
+Portugal,1989,10042
+Portugal,1990,10894
+Portugal,1991,11783
+Portugal,1992,12219
+Portugal,1993,12236
+Portugal,1994,12614
+Portugal,1995,13413
+Portugal,1996,13974
+Portugal,1997,14804
+Portugal,1998,15401
+Portugal,1999,16363
+Portugal,2000,17353
+Portugal,2001,18071
+Portugal,2002,18799
+Portugal,2003,17603
+Spain,1960,1074
+Spain,1961,1201
+Spain,1962,1335
+Spain,1963,1467
+Spain,1964,1554
+Spain,1965,1678
+Spain,1966,1841
+Spain,1967,1954
+Spain,1968,2160
+Spain,1969,2447
+Spain,1970,2715
+Spain,1971,2951
+Spain,1972,3293
+Spain,1973,3710
+Spain,1974,4227
+Spain,1975,4600
+Spain,1976,4965
+Spain,1977,5364
+Spain,1978,5761
+Spain,1979,6188
+Spain,1980,6856
+Spain,1981,7447
+Spain,1982,7957
+Spain,1983,8378
+Spain,1984,8812
+Spain,1985,9259
+Spain,1986,9744
+Spain,1987,10542
+Spain,1988,11434
+Spain,1989,12417
+Spain,1990,13365
+Spain,1991,14152
+Spain,1992,14564
+Spain,1993,14699
+Spain,1994,15325
+Spain,1995,16032
+Spain,1996,16720
+Spain,1997,17420
+Spain,1998,18479
+Spain,1999,19817
+Spain,2000,21074
+Spain,2001,22257
+Spain,2002,23756
+Spain,2003,24812
+Switzerland,1960,3387
+Switzerland,1961,3625
+Switzerland,1962,3788
+Switzerland,1963,3946
+Switzerland,1964,4158
+Switzerland,1965,4360
+Switzerland,1966,4575
+Switzerland,1967,4790
+Switzerland,1968,5138
+Switzerland,1969,5645
+Switzerland,1970,6382
+Switzerland,1971,6938
+Switzerland,1972,7406
+Switzerland,1973,7998
+Switzerland,1974,8800
+Switzerland,1975,8934
+Switzerland,1976,9368
+Switzerland,1977,10240
+Switzerland,1978,11003
+Switzerland,1979,12189
+Switzerland,1980,13853
+Switzerland,1981,15338
+Switzerland,1982,15963
+Switzerland,1983,16611
+Switzerland,1984,17710
+Switzerland,1985,18812
+Switzerland,1986,19458
+Switzerland,1987,20120
+Switzerland,1988,21334
+Switzerland,1989,22965
+Switzerland,1990,24518
+Switzerland,1991,24840
+Switzerland,1992,25141
+Switzerland,1993,25427
+Switzerland,1994,26031
+Switzerland,1995,26485
+Switzerland,1996,26394
+Switzerland,1997,27850
+Switzerland,1998,28835
+Switzerland,1999,28887
+Switzerland,2000,30461
+Switzerland,2001,30806
+Switzerland,2002,32751
+Switzerland,2003,33516
+UK,1960,2158
+UK,1961,2216
+UK,1962,2276
+UK,1963,2386
+UK,1964,2534
+UK,1965,2660
+UK,1966,2794
+UK,1967,2923
+UK,1968,3173
+UK,1969,3391
+UK,1970,3615
+UK,1971,3854
+UK,1972,4149
+UK,1973,4683
+UK,1974,5036
+UK,1975,5481
+UK,1976,5953
+UK,1977,6489
+UK,1978,7176
+UK,1979,7973
+UK,1980,8502
+UK,1981,9161
+UK,1982,9917
+UK,1983,10669
+UK,1984,11336
+UK,1985,12068
+UK,1986,12795
+UK,1987,13717
+UK,1988,14864
+UK,1989,15716
+UK,1990,16397
+UK,1991,16681
+UK,1992,17069
+UK,1993,17845
+UK,1994,18975
+UK,1995,19860
+UK,1996,20923
+UK,1997,22280
+UK,1998,23206
+UK,1999,23959
+UK,2000,25583
+UK,2001,27026
+UK,2002,28969
+UK,2003,29609
+USA,1960,2879
+USA,1961,2929
+USA,1962,3103
+USA,1963,3227
+USA,1964,3420
+USA,1965,3667
+USA,1966,3974
+USA,1967,4154
+USA,1968,4494
+USA,1969,4805
+USA,1970,4999
+USA,1971,5362
+USA,1972,5838
+USA,1973,6464
+USA,1974,6951
+USA,1975,7519
+USA,1976,8300
+USA,1977,9146
+USA,1978,10229
+USA,1979,11306
+USA,1980,12186
+USA,1981,13533
+USA,1982,13940
+USA,1983,15008
+USA,1984,16549
+USA,1985,17600
+USA,1986,18439
+USA,1987,19407
+USA,1988,20711
+USA,1989,22047
+USA,1990,23064
+USA,1991,23507
+USA,1992,24509
+USA,1993,25409
+USA,1994,26670
+USA,1995,27574
+USA,1996,28814
+USA,1997,30262
+USA,1998,31519
+USA,1999,33028
+USA,2000,34603
+USA,2001,35341
+USA,2002,36180
+USA,2003,37548
+West Germany,1960,2284
+West Germany,1961,2388
+West Germany,1962,2527
+West Germany,1963,2610
+West Germany,1964,2806
+West Germany,1965,3005
+West Germany,1966,3168
+West Germany,1967,3241
+West Germany,1968,3571
+West Germany,1969,3998
+West Germany,1970,4367
+West Germany,1971,4686
+West Germany,1972,5055
+West Germany,1973,5553
+West Germany,1974,6074
+West Germany,1975,6603
+West Germany,1976,7367
+West Germany,1977,8090
+West Germany,1978,8928
+West Germany,1979,10067
+West Germany,1980,11083
+West Germany,1981,12115
+West Germany,1982,12761
+West Germany,1983,13519
+West Germany,1984,14481
+West Germany,1985,15291
+West Germany,1986,15998
+West Germany,1987,16679
+West Germany,1988,17786
+West Germany,1989,18994
+West Germany,1990,20465
+West Germany,1991,21602
+West Germany,1992,22154
+West Germany,1993,21878
+West Germany,1994,22371
+West Germany,1995,23035
+West Germany,1996,23742
+West Germany,1997,24156
+West Germany,1998,24931
+West Germany,1999,25755
+West Germany,2000,26943
+West Germany,2001,27449
+West Germany,2002,28348
+West Germany,2003,28855

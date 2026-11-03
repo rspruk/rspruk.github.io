@@ -1,0 +1,3 @@
+v 3
+d splitsc package
+p splitsc Time-split honest inference for synthetic controls

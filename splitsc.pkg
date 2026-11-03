@@ -1,0 +1,12 @@
+v 3
+d splitsc. Time-split honest inference for synthetic controls with imperfect fit
+d Trend-balancing time-split interval, curvature class, breakdown curvature,
+d breakdown persistence and placebo-calibrated drift bound, with figures.
+f splitsc.ado
+f splitsc.sthlp
+f splitsc_examples.do
+f splitsc_cert.do
+f splitsc_graphs.do
+f prop99.csv
+f germany.csv
+f basque.csv
